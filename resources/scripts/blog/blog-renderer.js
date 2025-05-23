@@ -83,6 +83,12 @@ fetch('post-manifest.json')
         }
         // Only navigate if the item is not already active
         if (!listItem.classList.contains('active')) {
+          // Remove active class from all list items
+          postsListContainer.querySelectorAll('.list-group-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          // Add active class to the clicked list item
+          listItem.classList.add('active');
           // Wait 500ms before navigating
           setTimeout(() => { window.location.href = listItem.href; }, 500);
         }
