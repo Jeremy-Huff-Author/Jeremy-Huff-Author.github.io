@@ -58,6 +58,11 @@ fetch('post-manifest.json')
     postManifest.forEach(post => {
       const listItem = document.createElement('a');
       listItem.classList.add('list-group-item', 'list-group-item-action');
+
+      if(initialPostName === convertTitleToDirName(post.title)) {
+        listItem.classList.add('active');
+      }
+
       listItem.href = `/blog/index.html?post=${convertTitleToDirName(post.title)}`; // Use hash for navigation
       listItem.innerHTML = `<li class="list-group-item">
         <div class="ms-2 me-auto">
