@@ -44,7 +44,9 @@ const renderPost = (postName) => {
     textOverlay.appendChild(titleElement);
     textOverlay.appendChild(dateElement);
     postContentContainer.appendChild(textOverlay);
-    postContentContainer.innerHTML += markdownContent; // Add the body content
+
+    const htmlContent = marked(markdownContent);
+    postContentContainer.innerHTML += htmlContent; // Add the body content
   })
   .catch(error => console.error('Error fetching post data:', error));
 }
