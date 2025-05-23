@@ -25,7 +25,7 @@ const renderPost = (postName) => {
     // Create the hero section
     const heroSection = document.createElement('div');
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
-    document.documentElement.style.setProperty('--blog-hero-background-image', `url(./posts/${postName}/thumbnail.png)`);
+    document.documentElement.style.setProperty('--blog-hero-background-image', `url(/blog/posts/${postName}/thumbnail.png)`);
 
     const textOverlay = document.createElement('div');
     textOverlay.classList.add('text-shadow');
