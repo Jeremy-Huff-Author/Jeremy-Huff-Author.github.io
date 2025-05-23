@@ -43,6 +43,7 @@ const renderPost = (postName) => {
 
     textOverlay.appendChild(titleElement);
     textOverlay.appendChild(dateElement);
+    postContentContainer.appendChild(heroSection);
     postContentContainer.appendChild(textOverlay);
 
     const htmlContent = window.marked.parse(markdownContent);
