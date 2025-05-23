@@ -5,12 +5,14 @@ const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
 console.log(initialPostName, !initialPostName);
 if(!initialPostName) {
-  const offcanvasElement = document.getElementById('offcanvas');
-  const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
-  console.log(offcanvasElement, offcanvas);
-  if (offcanvas) {
-    offcanvas.show();
-  }
+  setTimeout(() => {
+    const offcanvasElement = document.getElementById('offcanvas');
+    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+    console.log(offcanvasElement, offcanvas);
+    if (offcanvas) {
+      offcanvas.show();
+    }
+  });
 }
 
 const convertTitleToDirName = (title) => {
