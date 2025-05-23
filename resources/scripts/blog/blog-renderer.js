@@ -4,6 +4,14 @@ const postContentContainer = document.getElementById('post-content');
 const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
 
+if(!initialPostName) {
+  const offcanvasElement = document.getElementById('offcanvas');
+  const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+  if (offcanvas) {
+    offcanvas.show();
+  }
+}
+
 const convertTitleToDirName = (title) => {
   return title.toLowerCase().replace(/\s+/g, '-');
 };
