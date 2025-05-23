@@ -7,7 +7,7 @@ console.log(initialPostName, !initialPostName);
 if(!initialPostName) {
   setTimeout(() => {
     const offcanvasElement = document.getElementById('offcanvas');
-    const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+    const offcanvas = new bootstrap.Offcanvas(offcanvasElement);
     console.log(offcanvasElement, offcanvas);
     if (!!offcanvas) {
       offcanvas.show();
