@@ -12,7 +12,7 @@ if(!initialPostName) {
     if (offcanvas) {
       offcanvas.show();
     }
-  });
+  }, 500);
 }
 
 const convertTitleToDirName = (title) => {
