@@ -71,6 +71,22 @@ fetch('post-manifest.json')
         </div>
       </li>`;
       postsListContainer.appendChild(listItem);
+
+      listItem.addEventListener('click', (event) => {
+        // Prevent default navigation
+        event.preventDefault();
+        // Close the offcanvas pane (assuming it has an ID 'offcanvasNavbar')
+        const offcanvasElement = document.getElementById('offcanvas');
+        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+        if (offcanvas) {
+          offcanvas.hide();
+        }
+        // Only navigate if the item is not already active
+        if (!listItem.classList.contains('active')) {
+          // Wait 500ms before navigating
+          setTimeout(() => { window.location.href = listItem.href; }, 500);
+        }
+      });
     });
   } else {
     console.error(postManifest)
