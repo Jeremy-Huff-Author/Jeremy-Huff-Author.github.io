@@ -24,12 +24,11 @@ const renderPost = (postName) => {
 
     // Create the hero section
     const heroSection = document.createElement('div');
-    heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5');
-    heroSection.style.backgroundImage = `url(./posts/${postName}/thumbnail.png)`;
+    heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
     heroSection.style.setProperty('--blog-hero-background-image', `url(./posts/${postName}/thumbnail.png)`);
 
     const textOverlay = document.createElement('div');
-    textOverlay.classList.add('text-shadow'); // Assuming you have a CSS class for text-shadow
+    textOverlay.classList.add('text-shadow');
 
     const titleElement = document.createElement('h1');
     titleElement.innerText = metadata.title;
