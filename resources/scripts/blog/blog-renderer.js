@@ -3,8 +3,8 @@ const postsListContainer = document.getElementById('posts-list');
 const postContentContainer = document.getElementById('post-content');
 const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
-
-if(!initialPostName) {
+console.log(initialPostName);
+if(initialPostName === '') {
   const offcanvasElement = document.getElementById('offcanvas');
   const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
   if (offcanvas) {
