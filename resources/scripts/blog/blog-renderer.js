@@ -59,7 +59,7 @@ fetch('post-manifest.json')
       const listItem = document.createElement('a');
       listItem.classList.add('list-group-item', 'list-group-item-action');
       listItem.href = `/blog/index.html?post=${convertTitleToDirName(post.title)}`; // Use hash for navigation
-      listItem.textContent = post.title;
+      listItem.innerHTML = `<strong>${post.title}</strong><br>${post.date}`;
       postsListContainer.appendChild(listItem);
     });
   } else {
