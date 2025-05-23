@@ -1,0 +1,19 @@
+.audiobook-player {
+    background: #2c2c2c;
+    border: 2px solid #555;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    width: 300px;
+    text-align: center;
+  }
+
+  .audiobook-player h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+  }
+
+  audio {
+    width: 100%;
+    filter: invert(0.9) sepia(0.3) saturate(0.8) contrast(1.2);
+  }

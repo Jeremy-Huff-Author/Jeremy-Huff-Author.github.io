@@ -1,0 +1,45 @@
+name: Generate Blog Post Manifest
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog/**'
+  workflow_dispatch:
+
+jobs:
+  generate-manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Generate post-manifest.json
+        run: |
+          echo "[" > blog/post-manifest.json
+          first=true
+          for dir in blog/posts/*/; do
+            if [ -f "$dir/index.json" ]; then
+              if [ "$first" = true ]; then
+                first=false
+              else
+                echo "," >> blog/post-manifest.json
+              fi
+              cat "$dir/index.json" >> blog/post-manifest.json
+            fi
+          done
+          echo "]" >> blog/post-manifest.json
+
+      - name: Commit and Push Changes
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          git config user.name "Jeremy Huff"
+          git config user.email "jeremythuff@gmail.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
+          git add blog/post-manifest.json
+          git diff --cached --quiet || git commit -m "Update post-manifest.json"
+          git log -1
+          git push origin HEAD:${{ github.ref_name }}

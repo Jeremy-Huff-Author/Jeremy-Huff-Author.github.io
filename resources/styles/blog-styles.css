@@ -1,0 +1,51 @@
+.navbar {
+    position: absolute; /* Position over the hero image */
+    width: 100%;
+    z-index: 10; /* Ensure navbar is on top */
+}
+.navbar-nav,
+main {
+    display: flex; /* Use flexbox */
+    flex-grow: 0.85; /* Allow the nav-items to grow */
+    justify-content: space-around; /* Distribute space evenly */
+}
+.navbar .nav-link {
+    font-family: 'Georgia', serif; /* Victorian-style serif font, fallback to generic serif */
+    color: rgba(248, 249, 250, 0.8); /* Slightly transparent light color for links */
+}
+.navbar-brand {
+    font-size: 2em; /* Larger font size */
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto; /* Victorian-style serif font, fallback to generic serif */
+    color: rgba(248, 249, 250, 0.8); /* Apply color to the brand as well */
+}
+.initial-brand-char {
+    font-size: 1.35em;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto; /* Victorian-style serif font, fallback to generic serif */
+    vertical-align: sub;
+}
+.navbar-collapse {
+    flex-grow: 0.5;
+}
+
+.nav-item {
+    font-size: 0.85em;
+    position: relative;
+}
+
+.nav-item .nav-link.active::after {
+    content: '';
+    position: absolute;
+    justify-self: anchor-center;
+    align-self: anchor-center;
+    bottom: -29px;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/underline.png);
+    background-size: contain;
+}
+
+main {
+    padding-top: 60px; /* Add padding to the top to clear the fixed navbar */
+}

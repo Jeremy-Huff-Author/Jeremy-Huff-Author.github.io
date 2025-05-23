@@ -1,0 +1,124 @@
+body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f9f8e2; /* Light text */
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #f9f8e2; /* Ensure headings are light */
+    font-family: serif; /* Serif font for headings */
+}
+p, a, li {
+     font-family: sans-serif; /* Sans-serif font for body */
+}
+
+.hero-section {
+    background-image: url('../images/hero.png');
+    background-size: cover;
+    background-position: center;
+    color: #f9f8e2; /* Light text for hero */
+    padding: 100px 0;
+    text-align: center;
+    position: relative; /* Needed for absolute positioning of text */
+    height: 80vh;
+}
+.hero-section::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.8) 100%);
+    content: '';
+    pointer-events: none; /* Allow interactions with elements behind the pseudo-element */
+    z-index: 1; /* Place the vignette on top of the background image but below the text */
+}
+
+.hero-text {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: end; /* Center items vertically (if needed) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for readability */
+    gap: 10px; /* Add space between flex items */
+    height: 100%;
+    font-family: 'Georgia', serif; /* Victorian-style serif font, fallback to generic serif */
+}
+.hero-text .lead {
+    font-family: 'Georgia', serif; /* Victorian-style serif font, fallback to generic serif */
+}
+.latest-project-section, .recent-blog-posts-section {
+    padding: 50px 0;
+}
+.latest-project-image {
+    max-width: 100%;
+    height: auto;
+    display: flex;
+}
+.blog-post-preview img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.navbar {
+    background-color: transparent !important; /* Make navbar background transparent */
+    position: absolute; /* Position over the hero image */
+    width: 100%;
+    z-index: 10; /* Ensure navbar is on top */
+}
+.navbar-nav {
+    display: flex; /* Use flexbox */
+    flex-grow: 0.85; /* Allow the nav-items to grow */
+    justify-content: space-around; /* Distribute space evenly */
+}
+.navbar .nav-link {
+    font-family: 'Georgia', serif; /* Victorian-style serif font, fallback to generic serif */
+    color: rgba(248, 249, 250, 0.8); /* Slightly transparent light color for links */
+}
+.navbar-brand {
+    font-size: 2em; /* Larger font size */
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto; /* Victorian-style serif font, fallback to generic serif */
+    color: #f9f8e2; /* Apply color to the brand as well */
+}
+.initial-brand-char {
+    font-size: 1.35em;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto; /* Victorian-style serif font, fallback to generic serif */
+    vertical-align: sub;
+}
+.navbar-collapse {
+    flex-grow: 0.5;
+}
+
+.hero-buttons {
+    max-width: 90%; /* Use a percentage for width */
+}
+
+.hero-buttons .btn {
+    --bs-btn-padding-x: 1.75rem;
+}
+
+.nav-item {
+    font-size: 0.85em;
+    position: relative;
+}
+
+.nav-item .nav-link.active::after {
+    content: '';
+    position: absolute;
+    justify-self: anchor-center;
+    align-self: anchor-center;
+    bottom: -29px;
+    width: 50px;
+    height: 50px;
+    background-image: url(../images/underline.png);
+    background-size: contain;
+}
+
+.section-heading h2 {
+    font-size: 1.35em;
+}
+
+.emphasis-heading {
+    font-size: 2.0em;
+}
