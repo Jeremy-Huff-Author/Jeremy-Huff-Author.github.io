@@ -9,10 +9,10 @@ if(!initialPostName) {
     const offcanvasElement = document.getElementById('offcanvas');
     const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
     console.log(offcanvasElement, offcanvas);
-    if (offcanvas) {
+    if (!!offcanvas) {
       offcanvas.show();
     }
-  }, 500);
+  }, 2500);
 }
 
 const convertTitleToDirName = (title) => {
@@ -86,7 +86,7 @@ fetch('post-manifest.json')
       listItem.addEventListener('click', (event) => {
         // Prevent default navigation
         event.preventDefault();
-        // Close the offcanvas pane (assuming it has an ID 'offcanvasNavbar')
+        // Close the offcanvas pane (assuming it has an ID 'offcanvas')
         const offcanvasElement = document.getElementById('offcanvas');
         const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
         if (offcanvas) {
