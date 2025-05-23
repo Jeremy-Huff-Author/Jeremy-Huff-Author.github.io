@@ -67,3 +67,10 @@ main {
 .list-group-item {
     border: none;
 }
+
+.list-group-item.active {
+    color: #e9ecee;
+    text-decoration: none;
+    background-color: #3c3c3c;
+    border: none;
+}
