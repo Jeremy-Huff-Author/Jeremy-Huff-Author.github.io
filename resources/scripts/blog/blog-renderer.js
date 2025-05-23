@@ -20,39 +20,37 @@ const renderPost = (postName) => {
   ])
   .then(([metadata, markdownContent]) => {
     // Convert markdown to HTML using marked.parse()
- const htmlContent = marked.parse(markdownContent);
-    
- // Assuming there is a container element with the ID 'blog-post-container'
-    const blogPostContainer = document.getElementById('blog-post-container'); 
+    const htmlContent = marked.parse(markdownContent);
+    const blogPostContainer = document.getElementById('post-content'); 
     blogPostContainer.style.position = 'relative'; // Make the container relative for absolute positioning of text
 
- const thumbnailImg = document.createElement('img');
- thumbnailImg.src = `./posts/${postName}/thumbnail.png`; // Use postName to construct the path
- thumbnailImg.alt = `${metadata.title} Thumbnail`;
- thumbnailImg.classList.add('blog-hero-image'); // Add a class for styling
+    const thumbnailImg = document.createElement('img');
+    thumbnailImg.src = `./posts/${postName}/thumbnail.png`; // Use postName to construct the path
+    thumbnailImg.alt = `${metadata.title} Thumbnail`;
+    thumbnailImg.classList.add('blog-hero-image'); // Add a class for styling
 
     const textOverlay = document.createElement('div');
- textOverlay.style.position = 'absolute';
- textOverlay.style.bottom = '0';
- textOverlay.style.left = '0';
- textOverlay.style.right = '0';
- textOverlay.style.padding = '20px';
- textOverlay.style.color = 'white';
- textOverlay.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
+    textOverlay.style.position = 'absolute';
+    textOverlay.style.bottom = '0';
+    textOverlay.style.left = '0';
+    textOverlay.style.right = '0';
+    textOverlay.style.padding = '20px';
+    textOverlay.style.color = 'white';
+    textOverlay.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
 
     const titleElement = document.createElement('h1');
- titleElement.innerText = metadata.title;
+    titleElement.innerText = metadata.title;
 
     const dateElement = document.createElement('p');
- dateElement.innerText = new Date(metadata.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    dateElement.innerText = new Date(metadata.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
- textOverlay.appendChild(titleElement);
- textOverlay.appendChild(dateElement);
+    textOverlay.appendChild(titleElement);
+    textOverlay.appendChild(dateElement);
 
- // Clear existing content and add the new structure
+    // Clear existing content and add the new structure
     postContentContainer.innerHTML = ''; // Clear existing content in post-content
     postContentContainer.appendChild(thumbnailImg);
- postContentContainer.appendChild(textOverlay);
+    postContentContainer.appendChild(textOverlay);
     postContentContainer.innerHTML += htmlContent; // Add the body content
   })
   .catch(error => console.error('Error fetching post data:', error));
