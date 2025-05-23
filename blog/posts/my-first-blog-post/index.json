@@ -1,5 +1,6 @@
 {
     "title": "My First Blog Post",
     "date": "2023-10-26",
-    "description": "This is the beginning of my blogging journey."
+    "description": "This is the beginning of my blogging journey.",
+    "cover-vertical-offset": -281
 }

@@ -33,6 +33,9 @@ const renderPost = (postName) => {
     const heroSection = document.createElement('div');
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
     document.documentElement.style.setProperty('--blog-hero-background-image', `url(/blog/posts/${postName}/thumbnail.png)`);
+    if (metadata['cover-vertical-offset'] !== undefined) {
+      heroSection.style.backgroundPositionY = `${metadata['cover-vertical-offset']}px`;
+    }
 
     const textOverlay = document.createElement('div');
     textOverlay.classList.add('text-shadow');
