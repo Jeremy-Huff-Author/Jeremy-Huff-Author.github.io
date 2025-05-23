@@ -19,37 +19,30 @@ const renderPost = (postName) => {
     fetch(markdownFilePath).then(response => response.text())
   ])
   .then(([metadata, markdownContent]) => {
-    // Convert markdown to HTML using marked.parse()
-    const htmlContent = marked.parse(markdownContent);
-    const blogPostContainer = document.getElementById('post-content'); 
-    blogPostContainer.style.position = 'relative'; // Make the container relative for absolute positioning of text
+    // Clear existing content
+    postContentContainer.innerHTML = '';
 
-    const thumbnailImg = document.createElement('img');
-    thumbnailImg.src = `./posts/${postName}/thumbnail.png`; // Use postName to construct the path
-    thumbnailImg.alt = `${metadata.title} Thumbnail`;
-    thumbnailImg.classList.add('blog-hero-image'); // Add a class for styling
+    // Create the hero section
+    const heroSection = document.createElement('div');
+    heroSection.classList.add('position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5');
+    heroSection.style.backgroundImage = `url(./posts/${postName}/thumbnail.png)`;
+    heroSection.style.backgroundSize = 'cover';
+    heroSection.style.backgroundPosition = 'center';
+    heroSection.style.minHeight = '400px';
 
     const textOverlay = document.createElement('div');
-    textOverlay.style.position = 'absolute';
-    textOverlay.style.bottom = '0';
-    textOverlay.style.left = '0';
-    textOverlay.style.right = '0';
-    textOverlay.style.padding = '20px';
-    textOverlay.style.color = 'white';
-    textOverlay.style.textShadow = '2px 2px 4px rgba(0, 0, 0, 0.5)';
+    textOverlay.classList.add('text-shadow'); // Assuming you have a CSS class for text-shadow
 
     const titleElement = document.createElement('h1');
     titleElement.innerText = metadata.title;
+    titleElement.classList.add('mb-0');
 
     const dateElement = document.createElement('p');
     dateElement.innerText = new Date(metadata.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    dateElement.classList.add('mb-0');
 
     textOverlay.appendChild(titleElement);
     textOverlay.appendChild(dateElement);
-
-    // Clear existing content and add the new structure
-    postContentContainer.innerHTML = ''; // Clear existing content in post-content
-    postContentContainer.appendChild(thumbnailImg);
     postContentContainer.appendChild(textOverlay);
     postContentContainer.innerHTML += htmlContent; // Add the body content
   })
