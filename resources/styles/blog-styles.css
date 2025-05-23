@@ -1,4 +1,7 @@
-.navbar {
+:root {
+    --blog-hero-background-image: url('../images/hero.png');
+}
+.navbar {    
     position: absolute; /* Position over the hero image */
     width: 100%;
     z-index: 10; /* Ensure navbar is on top */
@@ -27,6 +30,13 @@ main {
 }
 .navbar-collapse {
     flex-grow: 0.5;
+}
+
+.blog-hero {
+ background-image: var(--blog-hero-background-image);
+ background-size: cover;
+ min-height: 400px;
+ position: relative;
 }
 
 .nav-item {

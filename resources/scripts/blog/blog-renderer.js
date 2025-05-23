@@ -24,11 +24,9 @@ const renderPost = (postName) => {
 
     // Create the hero section
     const heroSection = document.createElement('div');
-    heroSection.classList.add('position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5');
+    heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5');
     heroSection.style.backgroundImage = `url(./posts/${postName}/thumbnail.png)`;
-    heroSection.style.backgroundSize = 'cover';
-    heroSection.style.backgroundPosition = 'center';
-    heroSection.style.minHeight = '400px';
+    heroSection.style.setProperty('--blog-hero-background-image', `url(./posts/${postName}/thumbnail.png)`);
 
     const textOverlay = document.createElement('div');
     textOverlay.classList.add('text-shadow'); // Assuming you have a CSS class for text-shadow
@@ -43,8 +41,8 @@ const renderPost = (postName) => {
 
     textOverlay.appendChild(titleElement);
     textOverlay.appendChild(dateElement);
+    heroSection.appendChild(textOverlay);
     postContentContainer.appendChild(heroSection);
-    postContentContainer.appendChild(textOverlay);
 
     const htmlContent = window.marked.parse(markdownContent);
     postContentContainer.innerHTML += htmlContent; // Add the body content
