@@ -1,23 +1,10 @@
 [
 {
-    "title": "Another Blog Post",
-    "date": "2025-11-06",
-    "description": "Some more thoughts on some more stuff.",
-    "cover-vertical-offset": 0
-},
-{
     "title": "Exploring New Horizons",
     "date": "2023-11-01",
     "description": "Sharing some thoughts on expanding my knowledge and skills.",
     "cover-vertical-offset": -245
 },
-{
-    "title": "Future Blog Post",
-    "date": "2025-06-01",
-    "description": "This is future blog post.",
-    "cover-vertical-offset": -281
-}
-,
 {
     "title": "My First Blog Post",
     "date": "2023-10-26",
