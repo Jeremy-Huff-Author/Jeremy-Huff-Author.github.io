@@ -19,6 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Email:', email);
                 console.log('Comment:', comment);
 
+                // Submit the form data to the Netlify function
+                fetch('https://comment-handler.netlify.app/.netlify/functions/comment-handler', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Comment submitted successfully:', data);
+                })
+                .catch(error => {
+                    console.error('Error submitting comment:', error);
+                });
                 commentForm.reset(); // Reset the form after successful submission
                 
             } else {
