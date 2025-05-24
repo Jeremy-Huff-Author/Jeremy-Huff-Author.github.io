@@ -16,20 +16,35 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
       - name: Generate post-manifest.json
         run: |
           echo "[" > blog/post-manifest.json
           first=true
+          now=$(date -u +"%Y-%m-%d")
+
           for dir in blog/posts/*/; do
-            if [ -f "$dir/index.json" ]; then
+            index_file="$dir/index.json"
+            if [ -f "$index_file" ]; then
+              post_date=$(jq -r '.date' "$index_file")
+
+              if [[ "$post_date" > "$now" ]]; then
+                echo "Skipping future post: $dir"
+                continue
+              fi
+
               if [ "$first" = true ]; then
                 first=false
               else
                 echo "," >> blog/post-manifest.json
               fi
-              cat "$dir/index.json" >> blog/post-manifest.json
+
+              cat "$index_file" >> blog/post-manifest.json
             fi
           done
+
           echo "]" >> blog/post-manifest.json
 
       - name: Commit and Push Changes
