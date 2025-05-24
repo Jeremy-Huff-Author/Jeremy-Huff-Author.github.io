@@ -74,3 +74,10 @@ main {
     background-color: #3c3c3c;
     border: none;
 }
+
+@media (max-height: calc(100vh - (/* Approximate height of header + main content without scrollbar */))) {
+    footer {
+        position: sticky;
+        bottom: 0;
+    }
+}
