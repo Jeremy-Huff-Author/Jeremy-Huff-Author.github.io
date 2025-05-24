@@ -75,9 +75,8 @@ main {
     border: none;
 }
 
-@media (max-height: calc(100vh - (0))) {
-    footer {
-        position: sticky;
-        bottom: 0;
-    }
+body.sticky-footer footer {
+    position: sticky;
+    bottom: 0;
+    padding: 1rem 0; /* Add padding */
 }
