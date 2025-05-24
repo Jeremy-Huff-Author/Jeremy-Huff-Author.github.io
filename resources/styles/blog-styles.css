@@ -75,7 +75,7 @@ main {
     border: none;
 }
 
-@media (max-height: calc(100vh - (/* Approximate height of header + main content without scrollbar */))) {
+@media (max-height: calc(100vh - (0))) {
     footer {
         position: sticky;
         bottom: 0;
