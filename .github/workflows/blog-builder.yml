@@ -21,6 +21,8 @@ jobs:
 
       - name: Generate post-manifest.json
         run: |
+          rm blog/post-manifest.json
+          touch blog/post-manifest.json
           echo "[" > blog/post-manifest.json
           first=true
           now=$(date -u +"%Y-%m-%d")
