@@ -55,6 +55,7 @@ const renderPost = (postName) => {
 
     const htmlContent = window.marked.parse(markdownContent);
     postContentContainer.innerHTML += htmlContent; // Add the body content
+    checkFooterSticky();
   })
   .catch(error => console.error('Error fetching post data:', error));
 }
