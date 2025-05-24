@@ -76,7 +76,9 @@ main {
 }
 
 body.sticky-footer footer {
-    position: sticky;
+    position: fixed;
     bottom: 0;
-    padding: 1rem 0; /* Add padding */
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
 }
