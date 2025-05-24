@@ -61,15 +61,16 @@
                 <div class="col-md-11">
                     <!-- Comment Section -->
                     <h3>Leave a Comment</h3>
-                    <form>
-                        <div class="mb-3">
-                            <label for="comment-name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="comment-name" required>
-                        </div>
-                        <!-- Hidden email field for potential future use or spam prevention -->
-                        <div class="mb-3 d-none">
-                            <label for="comment-email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="comment-email">
+                    <form id="comment-form">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="comment-name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="comment-name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="comment-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="comment-email">
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="comment-textarea" class="form-label">Comment</label>
