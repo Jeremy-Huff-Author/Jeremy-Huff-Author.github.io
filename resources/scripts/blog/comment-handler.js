@@ -24,23 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Comment Date:', formData.get('comment_date'));
                 console.log('Post ID:', post_id);
 
-                // Submit the form data to the Netlify function
+                const jsonData = {};
+                formData.forEach((value, key) => {
+                    jsonData[key] = value;
+                });
+
                 fetch('https://comment-handler.netlify.app/.netlify/functions/comment-handler', {
                     method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Comment submitted successfully:', data);
-                })
-                .catch(error => {
-                    console.error('Error submitting comment:', error);
-                });
+                    body: JSON.stringify(jsonData),
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Comment submitted successfully:', data);
+                    })
+                    .catch(error => {
+                        console.error('Error submitting comment:', error);
+                    });
                 commentForm.reset(); // Reset the form after successful submission
                 
             } else {
