@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = formData.get('commenter_email'); // Assuming your email input has name="email"
             const comment = formData.get('comment_text');
             const post_id = formData.get('post_id');
-            const date = formData.get('comment date');
 
             if(!!name && !!email && !!comment) {
                 // Log the collected data to the console
@@ -24,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Comment:', comment);
                 console.log('Comment Date:', formData.get('comment_date'));
                 console.log('Post ID:', post_id);
-                console.log('Comment Date:', date);
 
                 // Submit the form data to the Netlify function
                 fetch('https://comment-handler.netlify.app/.netlify/functions/comment-handler', {
