@@ -56,30 +56,30 @@
                     <!-- Blog posts will be loaded here by blog-renderer.js -->
                 </div>
             </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <!-- Comment Section -->
+                    <h3>Leave a Comment</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="comment-name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="comment-name" required>
+                        </div>
+                        <!-- Hidden email field for potential future use or spam prevention -->
+                        <div class="mb-3 d-none">
+                            <label for="comment-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="comment-email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="comment-textarea" class="form-label">Comment</label>
+                            <textarea class="form-control" id="comment-textarea" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark">Submit Comment</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
-    <!-- Comment Section -->
-    <div id="comments-section-wrapper">
-        <div class="container py-4" id="comments-section">
-            <h3>Leave a Comment</h3>
-            <form>
-                <div class="mb-3">
-                    <label for="comment-name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="comment-name" required>
-                </div>
-                <!-- Hidden email field for potential future use or spam prevention -->
-                <div class="mb-3 d-none">
-                    <label for="comment-email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="comment-email">
-                </div>
-                <div class="mb-3">
-                    <label for="comment-textarea" class="form-label">Comment</label>
-                    <textarea class="form-control" id="comment-textarea" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit Comment</button>
-            </form>
-        </div> 
-    </div>
     <footer class="bg-dark text-white text-center py-3">
         <div class="container">
             <p>&copy; 2025 Jeremy Huff</p>
