@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Name:', name);
                 console.log('Email:', email);
                 console.log('Comment:', comment);
+
+                commentForm.reset(); // Reset the form after successful submission
                 
             } else {
                 console.error('One or more form elements not found!');
