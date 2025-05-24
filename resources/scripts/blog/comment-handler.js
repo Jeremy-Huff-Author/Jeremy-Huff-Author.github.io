@@ -6,18 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault(); // Prevent the default form submission
 
             const formData = new FormData(commentForm);
+            formData.append('post_id', window.location.href);
+            formData.append('comment_date', new Date().toISOString());
             
             // Access data from the FormData object using input names
             const name = formData.get('commenter_name'); // Assuming your name input has name="name"
             const email = formData.get('commenter_email'); // Assuming your email input has name="email"
             const comment = formData.get('comment_text');
+            const post_id = formData.get('post_id');
+            const date = formData.get('comment date');
 
-            if(!!name || !!email || !!comment) {
+            if(!!name && !!email && !!comment) {
                 // Log the collected data to the console
                 console.log('Comment Data:');
                 console.log('Name:', name);
                 console.log('Email:', email);
                 console.log('Comment:', comment);
+                console.log('Comment Date:', formData.get('comment_date'));
+                console.log('Post ID:', post_id);
+                console.log('Comment Date:', date);
 
                 // Submit the form data to the Netlify function
                 fetch('https://comment-handler.netlify.app/.netlify/functions/comment-handler', {
