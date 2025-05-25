@@ -35,7 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch(commentsFilePath)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                // If the response is 404, it means no comments file exists
+                if (response.status === 404) {
+                    return null; // Return null to indicate no comments
+                } else {
+                    // For other HTTP errors, throw an error
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
             }
             return response.json();
         })
@@ -63,9 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => {
-            console.error('Error fetching or rendering comments:', error);
+            // Check if the error is due to a 404 status from the fetch call
+            const errorMessage = error instanceof Error && error.message.includes('HTTP error! status: 404')
+                ? 'No Comments, be the first to leave one!'
+                : 'Error loading comments.';
+
             const errorElement = document.createElement('p');
-            errorElement.textContent = error.includes("404") ? 'No comments yet. Be the first!' : 'Error loading comments.';
+            errorElement.textContent = errorMessage;
             commentsSection.appendChild(errorElement);
         });
 });
