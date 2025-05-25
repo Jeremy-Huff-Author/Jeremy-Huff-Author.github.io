@@ -75,7 +75,12 @@ async function fetchComments() {
 // https://jeremythuff.page/blog/index.html?post=my-first-blog-post
 function extractSlugFromUrl(url) {
   try {
-    const u = new URL(url);
+    let safeUrl = url;
+    // Prepend protocol if missing to handle URLs without one
+    if (!safeUrl.startsWith("http://") && !safeUrl.startsWith("https://")) {
+      safeUrl = "https://" + safeUrl;
+    }
+    const u = new URL(safeUrl);
     return u.searchParams.get("post");
   } catch (e) {
     return null;
