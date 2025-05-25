@@ -44,12 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (commentModal) {
                             const modal = bootstrap.Modal.getInstance(commentModal) || new bootstrap.Modal(commentModal);
                             modal.hide();
+                            commentForm.reset(); // Reset the form after successful submission
                         }
                     })
                     .catch(error => {
                         console.error('Error submitting comment:', error);
                     });
-                commentForm.reset(); // Reset the form after successful submission
                 
             } else {
                 console.error('One or more form elements not found!');
