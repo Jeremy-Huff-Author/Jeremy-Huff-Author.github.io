@@ -82,3 +82,7 @@ body.sticky-footer footer {
     width: 100%;
     padding: 1rem 0;
 }
+
+.grecaptcha-badge {
+    visibility: hidden;
+}
