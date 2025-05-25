@@ -50,13 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 comments.forEach(comment => {
                     const commentHTML = `
                     <div class="card">
-                        <div class="card-body">                            
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-body-secondary float-end">${new Date(comment.date).toLocaleDateString()}</h6>                            
                             <h5 class="card-title">${comment.name || 'Anonymous'}</h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary">${new Date(comment.date).toLocaleDateString()}</h6>
                             <hr>
                             <p class="card-text">${comment.comment}</p>
-                            <a href="#" class="card-link text-dark">Reply</a>
-                            <a href="#" class="card-link text-danger">Report</a>
+                            <!--<a href="#" class="card-link text-dark">Reply</a>
+                            <a href="#" class="card-link text-danger">Report</a>-->
                         </div>
                     </div>
                     `;
