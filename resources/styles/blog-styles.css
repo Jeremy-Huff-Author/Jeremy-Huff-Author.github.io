@@ -84,5 +84,5 @@ body.sticky-footer footer {
 }
 
 .grecaptcha-badge {
-    visibility: hidden;
+    display: none;
 }
