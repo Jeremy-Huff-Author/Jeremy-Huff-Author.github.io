@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(error => {
             console.error('Error fetching or rendering comments:', error);
             const errorElement = document.createElement('p');
-            errorElement.textContent = 'Error loading comments.';
+            errorElement.textContent = error.includes("404") ? 'No comments yet. Be the first!' : 'Error loading comments.';
             commentsSection.appendChild(errorElement);
         });
 });
