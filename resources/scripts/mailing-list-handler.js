@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const mailingListForm = document.getElementById('mailingListForm'); // Assuming your form has this ID
+    const mailingListForm = document.getElementById('mailing-list-form'); // Assuming your form has this ID
 
     if (mailingListForm) {
         mailingListForm.addEventListener('submit', function(event) {
