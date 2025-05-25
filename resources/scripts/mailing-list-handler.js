@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault(); // Prevent the default form submission
             // Disable form fields and buttons while processing
             mailingListForm.querySelectorAll('.form-control, .button').forEach(element => {
-                element.classList.add('disable');
+                element.disabled = true;
             });
 
             grecaptcha.ready(function() { 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 modal.hide();
                                 mailingListForm.reset();
                                 mailingListForm.querySelectorAll('.form-control, .button').forEach(element => {
-                                    element.classList.remove('disable');
+                                    element.disabled = false;
                                 });
                             }
                         })

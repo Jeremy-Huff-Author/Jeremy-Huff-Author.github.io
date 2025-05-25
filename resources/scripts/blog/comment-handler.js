@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault(); // Prevent the default form submission
 
             commentForm.querySelectorAll('.form-control, .button').forEach(element => {
-                element.classList.add('disable');
+                element.disabled = true;
             });
 
 
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     modal.hide();
                                     commentForm.reset(); // Reset the form after successful submission
                                     commentForm.querySelectorAll('.form-control, .button').forEach(element => {
-                                        element.classList.remove('disable');
+                                        element.disabled = false;
                                     });
                                 }
                             })
