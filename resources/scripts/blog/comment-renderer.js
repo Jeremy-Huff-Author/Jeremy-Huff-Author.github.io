@@ -43,18 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (comments && comments.length > 0) {
                 comments.forEach(comment => {
                     const commentHTML = `
-                    <div class="card mb-3"> 
-                        <div class="card-body d-flex"> 
-                            <div class="d-flex justify-content-between"> 
-                                <h6 class="mb-0">${comment.name || 'Anonymous'}</h6> 
-                                <small class="text-muted">${new Date(comment.date).toLocaleDateString()}</small> 
-                            </div> 
-                            <p class="mb-1">${comment.comment}</p> 
-                            <div class="d-flex gap-2"> 
-                                <a href="#" class="text-decoration-none text-primary">Reply</a> 
-                                <a href="#" class="text-decoration-none text-danger">Report</a> 
-                            </div> 
-                        </div> 
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">${comment.name || 'Anonymous'}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">${new Date(comment.date).toLocaleDateString()}</h6>
+                            <p class="card-text">${comment.comment}</p>
+                            <a href="#" class="card-link text-dark">Reply</a>
+                            <a href="#" class="card-link text-danger">Report</a>
+                        </div>
                     </div>
                     `;
                     commentsSection.innerHTML += commentHTML;
