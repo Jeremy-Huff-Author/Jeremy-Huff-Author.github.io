@@ -126,5 +126,5 @@ p, a, li {
 }
 
 .grecaptcha-badge {
-    visibility: hidden;
+    display: none;
 }
