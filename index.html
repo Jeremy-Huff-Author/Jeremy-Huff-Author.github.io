@@ -118,7 +118,11 @@
                             <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        <button type="submit" class="btn btn-light">Submit</button>
+                        <button data-sitekey="6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja" 
+                                data-callback='onSubmit' 
+                                data-action='submit' 
+                                type="submit" 
+                                class="g-recaptcha btn btn-light">Submit</button>
                     </form>
                 </div>
             </div>
@@ -137,5 +141,11 @@
             </div>
         </div>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
+        function onSubmit(token) {
+          document.getElementById("comment-form").submit();
+        }
+    </script>
     <script src="resources/scripts/mailing-list-handler.js"></script>
 </body>
