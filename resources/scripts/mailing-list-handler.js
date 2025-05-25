@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
         mailingListForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
 
-            const nameInput = document.getElementById('name'); // Assuming your name input has this ID
-            const emailInput = document.getElementById('email'); // Assuming your email input has this ID
+            const nameInput = document.getElementById('nameInput'); // Assuming your name input has this ID
+            const emailInput = document.getElementById('emailInput'); // Assuming your email input has this ID
 
             if (nameInput && emailInput) {
                 const name = nameInput.value;
