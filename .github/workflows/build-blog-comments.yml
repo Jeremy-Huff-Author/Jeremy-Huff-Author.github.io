@@ -30,8 +30,9 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          git config user.name "Jeremy Huff"
+          git config user.email "jeremythuff@gmail.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/${{ github.repository }}
           git add blog/posts/*
           git diff --cached --quiet || git commit -m "Update static comments from Notion"
           git push origin HEAD:main
