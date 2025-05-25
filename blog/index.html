@@ -91,9 +91,9 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button data-sitekey="6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja" 
-                                                data-callback='onSubmit' 
-                                                data-action='submit' 
+                                        <button data-sitekey="6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja"
+                                                data-callback='onSubmitComment'
+                                                data-action='submit'
                                                 type="submit" 
                                                 class="g-recaptcha btn btn-dark">Submit Comment</button>
                                     </div>
@@ -121,12 +121,12 @@
     <script src="../resources/scripts/footer-sticky.js"></script>
     <script src="../resources/scripts/blog/blog-renderer.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="../resources/scripts/blog/comment-handler.js"></script>
     <script>
-        function onSubmit(token) {
-          document.getElementById("comment-form").submit();
+        function onSubmitComment(token) {
+          handleCommentSubmission(token); // Call your comment handling function
         }
     </script>
-    <script src="../resources/scripts/blog/comment-handler.js"></script>
     <script src="../resources/scripts/blog/comment-renderer.js"></script>
 </body>
 </html>
