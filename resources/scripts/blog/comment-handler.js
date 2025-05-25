@@ -39,6 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .then(data => {
                         console.log('Comment submitted successfully:', data);
+                        // Close the modal after successful submission
+                        const commentModal = document.getElementById('comment-modal');
+                        if (commentModal) {
+                            const modal = bootstrap.Modal.getInstance(commentModal) || new bootstrap.Modal(commentModal);
+                            modal.hide();
+                        }
                     })
                     .catch(error => {
                         console.error('Error submitting comment:', error);
