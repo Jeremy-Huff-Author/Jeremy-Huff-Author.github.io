@@ -52,6 +52,8 @@ p, a, li {
     max-width: 100%;
     height: auto;
     display: flex;
+    border: #ead47b solid thin;
+    box-shadow: 1px 7px 16px rgba(0, 0, 0, 0.5);
 }
 .blog-post-preview img {
     width: 100%;
