@@ -43,13 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (comments && comments.length > 0) {
                 comments.forEach(comment => {
                     const commentHTML = `
-                        <div class="comment">
-                            <p class="comment-meta">
-                                <span class="comment-author">${comment.name || 'Anonymous'}</span>
-                                <span class="comment-date">${new Date(comment.date).toLocaleDateString()}</span>
-                            </p>
-                            <p class="comment-content">${comment.comment}</p>
-                        </div>
+                    <div class="card mb-3"> 
+                        <div class="card-body d-flex"> 
+                            <div class="d-flex justify-content-between"> 
+                                <h6 class="mb-0">${comment.name || 'Anonymous'}</h6> 
+                                <small class="text-muted">${new Date(comment.date).toLocaleDateString()}</small> 
+                            </div> 
+                            <p class="mb-1">${comment.comment}</p> 
+                            <div class="d-flex gap-2"> 
+                                <a href="#" class="text-decoration-none text-primary">Reply</a> 
+                                <a href="#" class="text-decoration-none text-danger">Report</a> 
+                            </div> 
+                        </div> 
+                    </div>
                     `;
                     commentsSection.innerHTML += commentHTML;
 
