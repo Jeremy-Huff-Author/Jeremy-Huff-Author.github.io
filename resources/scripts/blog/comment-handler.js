@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const formData = new FormData(commentForm);
                     formData.append('post_id', window.location.href);
                     formData.append('comment_date', new Date().toISOString());
+                    formData.append('recaptchaToken', token);
                     
                     // Access data from the FormData object using input names
                     const name = formData.get('commenter_name'); // Assuming your name input has name="name"
