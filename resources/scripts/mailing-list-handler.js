@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.disabled = true;
             });
 
-            grecaptcha.ready(function() { 
+            grecaptcha.ready(function() {
                 grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(function(token) {
                     const nameInput = document.getElementById('nameInput'); // Assuming your name input has this ID
                     const emailInput = document.getElementById('emailInput'); // Assuming your email input has this ID
