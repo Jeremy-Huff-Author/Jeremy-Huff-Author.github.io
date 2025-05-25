@@ -42,23 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(comments => {
             if (comments && comments.length > 0) {
                 comments.forEach(comment => {
-                    const commentElement = document.createElement('div');
-                    commentElement.classList.add('comment'); // Add a class for styling
+                    const commentHTML = `
+                        <div class="comment">
+                            <p class="comment-meta">
+                                <span class="comment-author">${comment.name || 'Anonymous'}</span>
+                                <span class="comment-date">${new Date(comment.date).toLocaleDateString()}</span>
+                            </p>
+                            <p class="comment-content">${comment.comment}</p>
+                        </div>
+                    `;
+                    commentsSection.innerHTML += commentHTML;
 
-                    const authorElement = document.createElement('h4');
-                    authorElement.textContent = comment.name || 'Anonymous'; // Display author or 'Anonymous'
-                    commentElement.appendChild(authorElement);
-
-                    const dateElement = document.createElement('p');
-                    const commentDate = new Date(comment.date);
-                    dateElement.textContent = commentDate.toLocaleDateString(); // Display formatted date
-                    commentElement.appendChild(dateElement);
-
-                    const contentElement = document.createElement('p');
-                    contentElement.textContent = comment.comment; // Display comment content
-                    commentElement.appendChild(contentElement);
-                    
-                    commentsSection.appendChild(commentElement);
                 });
             } else {
                 const noCommentsElement = document.createElement('p');
