@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     jsonData[key] = value;
                 });
 
-                fetch('https://comment-handler.netlify.app/.netlify/functions/comment-handler', {
+                fetch('https://jeremythuff.netlify.app/.netlify/functions/comment-handler', {
                     method: 'POST',
                     body: JSON.stringify(jsonData),
                     })
