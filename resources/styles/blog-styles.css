@@ -86,3 +86,9 @@ body.sticky-footer footer {
 .grecaptcha-badge {
     display: none;
 }
+
+.captcha-warning {
+    margin-top: 0;
+    margin-bottom: 0rem;
+    font-size: small;
+}
