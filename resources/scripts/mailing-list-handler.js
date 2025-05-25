@@ -43,10 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
                                 });
                             }
                         })
-                        .catch((error) => console.error('Error:', error))
+                        .catch((error) => {
+                            console.error('Error:', error)
+                            mailingListForm.querySelectorAll('input, select, textarea, button').forEach(element => {
+                                element.disabled = false;
+                            });
+                        })
 
                     } else {
                         console.error('Name or Email input not found.');
+                        mailingListForm.querySelectorAll('input, select, textarea, button').forEach(element => {
+                            element.disabled = false;
+                        });
                     }
                 });
             });

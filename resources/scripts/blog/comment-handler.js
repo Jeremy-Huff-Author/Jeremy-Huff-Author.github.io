@@ -54,16 +54,22 @@ document.addEventListener('DOMContentLoaded', () => {
                                     modal.hide();
                                     commentForm.reset(); // Reset the form after successful submission
                                     commentForm.querySelectorAll('input, select, textarea, button').forEach(element => {
-                                        element.disabled = true;
+                                        element.disabled = false;
                                     });
                                 }
                             })
                             .catch(error => {
                                 console.error('Error submitting comment:', error);
+                                commentForm.querySelectorAll('input, select, textarea, button').forEach(element => {
+                                    element.disabled = false;
+                                });
                             });
                         
                     } else {
                         console.error('One or more form elements not found!');
+                        commentForm.querySelectorAll('input, select, textarea, button').forEach(element => {
+                            element.disabled = false;
+                        });
                     }
 
                 });
