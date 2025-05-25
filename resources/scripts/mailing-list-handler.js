@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.json())
                 .then(data => console.log('Subscription response:', data))
                 .then(() => {
-                    // Close the modal
-                    const commentModal = document.getElementById('mailing-list-modal');
-                    const modal = bootstrap.Modal.getInstance(commentModal) || new bootstrap.Modal(commentModal);
+                    // Clear the form and close the modal
+                    const mailingListModalElement = document.getElementById('mailingListModal');
+                    const modal = bootstrap.Modal.getInstance(mailingListModalElement);
                     if (modal) {
                         modal.hide();
                         mailingListForm.reset();
