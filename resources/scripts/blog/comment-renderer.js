@@ -46,13 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     commentElement.classList.add('comment'); // Add a class for styling
 
                     const authorElement = document.createElement('h4');
-                    authorElement.textContent = comment.author || 'Anonymous'; // Display author or 'Anonymous'
+                    authorElement.textContent = comment.name || 'Anonymous'; // Display author or 'Anonymous'
                     commentElement.appendChild(authorElement);
+
+                    const dateElement = document.createElement('p');
+                    const commentDate = new Date(comment.date);
+                    dateElement.textContent = commentDate.toLocaleDateString(); // Display formatted date
+                    commentElement.appendChild(dateElement);
 
                     const contentElement = document.createElement('p');
                     contentElement.textContent = comment.comment; // Display comment content
                     commentElement.appendChild(contentElement);
-
+                    
                     commentsSection.appendChild(commentElement);
                 });
             } else {
