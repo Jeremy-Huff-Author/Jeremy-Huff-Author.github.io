@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mailingListForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
             // Disable form fields and buttons while processing
-            mailingListForm.querySelectorAll('.form-control, .button').forEach(element => {
+            mailingListForm.querySelectorAll('input, select, textarea, button').forEach(element => {
                 element.disabled = true;
             });
 
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             if (modal) {
                                 modal.hide();
                                 mailingListForm.reset();
-                                mailingListForm.querySelectorAll('.form-control, .button').forEach(element => {
+                                mailingListForm.querySelectorAll('input, select, textarea, button').forEach(element => {
                                     element.disabled = false;
                                 });
                             }

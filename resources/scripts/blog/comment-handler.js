@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         commentForm.addEventListener('submit', (event) => {
             event.preventDefault(); // Prevent the default form submission
 
-            commentForm.querySelectorAll('.form-control, .button').forEach(element => {
+            commentForm.querySelectorAll('input, select, textarea, button').forEach(element => {
                 element.disabled = true;
             });
 
@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const modal = bootstrap.Modal.getInstance(commentModal) || new bootstrap.Modal(commentModal);
                                     modal.hide();
                                     commentForm.reset(); // Reset the form after successful submission
-                                    commentForm.querySelectorAll('.form-control, .button').forEach(element => {
-                                        element.disabled = false;
+                                    commentForm.querySelectorAll('input, select, textarea, button').forEach(element => {
+                                        element.disabled = true;
                                     });
                                 }
                             })
