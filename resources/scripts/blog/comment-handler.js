@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const comment = formData.get('comment_text');
                     const post_id = formData.get('post_id');
 
-                    if(!!name && !!email && !!comment) {
+                    if(!!name || !!email || !!comment) {
                         // Log the collected data to the console
                         console.log('Comment Data:');
                         console.log('Name:', name);
