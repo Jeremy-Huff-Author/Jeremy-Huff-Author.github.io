@@ -19,3 +19,4 @@ That said, I really don't want any book that I write to take a back seat to the 
 
 So the challenge was to develop a story that deserved to exist in its own right, while allowing the planet of Altura to share shine out and capture the imaginations of others.
 
+More on all of this later!
