@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
             grecaptcha.ready(function() {
                 grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(function(token) {
                     
-                    const name = document.getElementById('commenter_name').value;
-                    const email = document.getElementById('commenter_email').value;
-                    const comment = document.getElementById('comment_text').value;
+                    const name = commentForm.querySelector('[name="commenter_name"]').value;
+                    const email = commentForm.querySelector('[name="commenter_email"]').value;
+                    const comment = commentForm.querySelector('[name="comment_text"]').value;
                     const post_id = window.location.href;
                     const comment_date = new Date().toISOString();
 
