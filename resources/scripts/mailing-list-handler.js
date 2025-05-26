@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             grecaptcha.ready(function() {
-                grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(function(token) {
+                grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(recaptchaToken => {
                     const nameInput = document.getElementById('nameInput'); // Assuming your name input has this ID
                     const emailInput = document.getElementById('emailInput'); // Assuming your email input has this ID
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             headers: {
                                 'Content-Type': 'application/json',
                             },
-                            body: JSON.stringify({ name, email }),
+                            body: JSON.stringify({ name, email, recaptchaToken}),
                         })
                         .then(response => response.json())
                         .then(data => console.log('Subscription response:', data))

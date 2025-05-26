@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             grecaptcha.ready(function() {
-                grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(function(token) {
+                grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(recaptchaToken => {
                     
                     const name = commentForm.querySelector('[name="commenter_name"]').value;
                     const email = commentForm.querySelector('[name="commenter_email"]').value;
@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     email,
                                     comment,
                                     comment_date,
-                                    post_id
+                                    post_id,
+                                    recaptchaToken
                                 }),
                             })
                             .then(response => {
