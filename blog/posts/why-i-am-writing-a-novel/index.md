@@ -20,7 +20,7 @@ Imagine a world where humanity survives above and below layers of sky—where th
 
 Most people shelter in the domed cities at the base of each tower or live among the clouds in the floating Aerlands, but rumors persist of those who have adapted to the toxic depths—becoming something both human and other, haunting the shrouded wilds beneath the towers.
 
-**The World**
+**What next?**
 
 In the future, I’ll be writing some deep dives into the specific attempts that have been made to ground this fantastical arrangement in hard science: the exodus of humanity from our solar system and their search for a new home aboard a fleet of generation ships; the colonization effort that transformed an inhospitable land into a “world house” fit for human survival. I want to explore the orchestrated attack on the shielding that protected Altura from its violent sun, the collapse of the world house, and the cataclysmic event known as Skyfall.
 
