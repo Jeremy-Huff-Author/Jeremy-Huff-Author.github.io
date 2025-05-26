@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!!name && !!email && !!comment) {                        console.log('Name:', name);
                         console.log('Email:', email);
                         console.log('Comment:', comment);
-                        console.log('Comment Date:', formData.get('comment_date'));
+                        console.log('Comment Date:', comment_date);
                         console.log('Post ID:', post_id);
 
                         fetch('https://jeremythuff.netlify.app/.netlify/functions/comment-handler', {
