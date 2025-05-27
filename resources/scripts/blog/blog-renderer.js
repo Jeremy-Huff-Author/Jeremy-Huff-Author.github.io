@@ -34,10 +34,6 @@ const renderPost = (postName) => {
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
     document.documentElement.style.setProperty('--blog-hero-background-image', `url(/blog/posts/${postName}/thumbnail.png)`);
     
-    if (metadata['custom-styles'] !== undefined) {
-      heroSection.style = metadata['custom-styles'];
-    }
-
     const textOverlay = document.createElement('div');
     textOverlay.classList.add('text-shadow');
 
@@ -56,6 +52,17 @@ const renderPost = (postName) => {
 
     const htmlContent = window.marked.parse(markdownContent);
     postContentContainer.innerHTML += htmlContent; // Add the body content
+    
+    // Fetch and apply custom styles
+    const customStylesPath = `${postFolderPath}/custom-styles.css`;
+    fetch(customStylesPath)
+    .then(response => response.text())
+    .then(cssContent => {
+      const styleTag = document.createElement('style');
+      styleTag.textContent = cssContent;
+      document.head.appendChild(styleTag);
+    })
+    .catch(error => console.error('Error fetching custom styles:', error));
     checkFooterSticky();
   })
   .catch(error => console.error('Error fetching post data:', error));
