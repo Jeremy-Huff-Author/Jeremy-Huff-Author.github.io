@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (comments && comments.length > 0) {
                 comments.forEach(comment => {
                     const commentHTML = `
-                    <div class="card">
+                    <div class="card mb-3">
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-body-secondary float-end">${new Date(comment.date).toLocaleDateString()}</h6>                            
                             <h5 class="card-title">${comment.name || 'Anonymous'}</h5>
