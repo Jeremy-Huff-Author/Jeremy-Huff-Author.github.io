@@ -8,6 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.disabled = true;
             });
 
+            // Function to extract slug from URL (similar to build/buildBlogComments.js)
+            const extractSlugFromUrl = (url) => {
+                try {
+                    // Prepend https:// if not present to handle relative URLs or those without protocol
+                    let fullUrl = url;
+                    if (!fullUrl.startsWith('http://') && !fullUrl.startsWith('https://')) {
+                        fullUrl = `https://example.com${fullUrl}`; // Use a dummy domain
+                    }
+                    const urlObject = new URL(fullUrl);
+                    const params = new URLSearchParams(urlObject.search);
+                    return params.get('post');
+                } catch (error) {
+                    console.error('Error extracting slug from URL:', error);
+                    return null;
+                }
+            };
+
+            const currentSlug = extractSlugFromUrl(window.location.href);
 
             grecaptcha.ready(function() {
                 grecaptcha.execute('6Lfr2EgrAAAAAEUh6j5JqZxhf8FqUiy2a--73wja', {action: 'submit'}).then(recaptchaToken => {
@@ -15,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const name = commentForm.querySelector('[name="commenter_name"]').value;
                     const email = commentForm.querySelector('[name="commenter_email"]').value;
                     const comment = commentForm.querySelector('[name="comment_text"]').value;
-                    const post_id = window.location.href;
+                    const post_id = currentSlug;
                     const comment_date = new Date().toISOString();
 
                     console.log(!!name, !!email, !!comment);
