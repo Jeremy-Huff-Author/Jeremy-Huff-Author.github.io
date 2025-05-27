@@ -30,13 +30,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const commentsFilePath = `/blog/posts/${currentSlug}/comments.json`;
+    const commentsEndpoint = `https://jeremythuff.netlify.app/.netlify/functions/comment-handler?post_id=${currentSlug}`;
 
-    fetch(commentsFilePath)
+    fetch(commentsEndpoint)
         .then(response => {
             if (!response.ok) {
-                // If the response is 404, it means no comments file exists
-                if (response.status === 404) {
+                // If the response is 204 No Content or 404 Not Found, it means no comments
+                // Although the API should return 200 with an empty array for no comments,
+                // this provides a fallback for potential different API behaviors.
+                if (response.status === 204 || response.status === 404) {
                     return null; // Return null to indicate no comments
                 } else {
                     // For other HTTP errors, throw an error
