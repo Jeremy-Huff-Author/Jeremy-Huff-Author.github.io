@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const noCommentsElement = document.createElement('p');
                 noCommentsElement.textContent = 'No comments yet.';
                 commentsSection.appendChild(noCommentsElement);
+                checkFooterSticky();
             }
         })
         .catch(error => {
@@ -80,5 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const errorElement = document.createElement('p');
             errorElement.textContent = errorMessage;
             commentsSection.appendChild(errorElement);
+            checkFooterSticky();
         });
 });
