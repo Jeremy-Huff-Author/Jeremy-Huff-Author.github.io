@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     commentsSection.innerHTML += commentHTML;
 
                 });
+                checkFooterSticky();
             } else {
                 const noCommentsElement = document.createElement('p');
                 noCommentsElement.textContent = 'No comments yet.';
