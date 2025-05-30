@@ -1,5 +1,6 @@
 {
-    "title": "My First Blog Post",
-    "date": "2025-05-20",
-    "description": "This is the beginning of my blogging journey."
+  "id": "202d719a-3dbb-80eb-9359-e53568a43dd4",
+  "title": "My First Blog Post",
+  "date": "2025-05-29",
+  "summary": "A post about a thing"
 }
