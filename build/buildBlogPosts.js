@@ -1,47 +1,161 @@
 const fs = require("fs");
 const path = require("path");
+const { Client } = require("@notionhq/client");
+const axios = require("axios");
+
+const { NOTION_POST_DATABASE_ID, NOTION_API_KEY } = process.env;
 
 const postsDir = path.join("blog", "posts");
-const manifestPath = path.join("blog", "post-manifest.json");
+const manifestPath = path.join(__dirname, '..', "blog", "post-manifest.json");
 
 const today = new Date().toISOString().split("T")[0];
 
-function loadPostIndex(dirPath) {
-  const indexFile = path.join(dirPath, "index.json");
-  if (!fs.existsSync(indexFile)) return null;
-
-  try {
-    const json = JSON.parse(fs.readFileSync(indexFile, "utf-8"));
-    return json;
-  } catch (e) {
-    console.warn(`Skipping malformed index.json in ${dirPath}`);
-    return null;
-  }
+function isPastOrToday(dateStr) {
+  if (!dateStr) {
+    return false;
 }
 
-function isPastOrToday(dateStr) {
   return dateStr <= today;
 }
 
-function main() {
-  const postDirs = fs.readdirSync(postsDir).filter(dir =>
-    fs.statSync(path.join(postsDir, dir)).isDirectory()
-  );
+async function main() {
+  if (!NOTION_POST_DATABASE_ID || !NOTION_API_KEY) {
+    console.error("Please provide NOTION_POST_DATABASE_ID and NOTION_API_KEY environment variables.");
+    process.exit(1);
+}
+
+  const notion = new Client({ auth: NOTION_API_KEY });
+
+  // Ensure the posts directory exists
+  if (!fs.existsSync(postsDir)) {
+    fs.mkdirSync(postsDir, { recursive: true });
+  }
 
   const posts = [];
 
-  for (const dir of postDirs) {
-    const fullDir = path.join(postsDir, dir);
-    const post = loadPostIndex(fullDir);
-    if (!post || !isPastOrToday(post.date)) {
-      console.log(`Skipping future or invalid post: ${dir}`);
-      continue;
-    }
-    posts.push(post);
-  }
+  try {
+    const response = await notion.databases.query({
+      database_id: NOTION_POST_DATABASE_ID,
+      filter: {
+        property: "Publication Date",
+        date: {
+          on_or_before: today,
+        },
+      },
+    });
 
-  fs.writeFileSync(manifestPath, JSON.stringify(posts, null, 2));
-  console.log(`✅ Wrote ${posts.length} posts to ${manifestPath}`);
+    for (const page of response.results) {
+      const pageId = page.id;
+      const properties = page.properties;
+      const title = properties.Name?.title?.[0]?.plain_text || 'Untitled'; // Handle untitled pages
+      const date = properties["Publication Date"]?.date?.start || "";
+      const summary = properties.Summary?.rich_text?.[0]?.plain_text || "";
+      const coverImageUrl = page.cover?.file?.url || page.cover?.external?.url || ''; // Access cover image URL correctly
+      const customStyles = properties["Custom Styles"]?.rich_text?.[0]?.plain_text || "";
+
+      if (!title || !date || !isPastOrToday(date)) {
+        console.log(`Skipping post with missing title, date, or future date: ${title || pageId}`);
+        continue;
+      }
+
+      // Create a slug from the title
+      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      const postDirectory = path.join(postsDir, slug);
+
+      // Fetch the content of the page
+      const contentResponse = await notion.blocks.children.list({
+        block_id: pageId,
+        page_size: 100, // Adjust page size as needed
+      });
+
+      // Basic content extraction (you might need to enhance this based on your Notion block types)
+      let content = "";
+      for (const block of contentResponse.results) {
+        if (block.type === "paragraph") {
+          content += block.paragraph.rich_text.map(text => text.plain_text).join("") + "\n\n";
+        } else if (block.type === "heading_1") {
+          content += `# ${block.heading_1.rich_text.map(text => text.plain_text).join("")}\n\n`;
+        } else if (block.type === "heading_2") {
+          content += `## ${block.heading_2.rich_text.map(text => text.plain_text).join("")}\n\n`;
+        } else if (block.type === "heading_3") {
+          content += `### ${block.heading_3.rich_text.map(text => text.plain_text).join("")}\n\n`;
+        } else if (block.type === "bulleted_list_item") {
+          content += `- ${block.bulleted_list_item.rich_text.map(text => text.plain_text).join("")}\n`;
+        } else if (block.type === "numbered_list_item") {
+          // Notion API does not provide the number, so we'll just use the list item markdown
+          content += `1. ${block.numbered_list_item.rich_text.map(text => text.plain_text).join("")}\n`;
+        } else if (block.type === "to_do") {
+          const checkbox = block.to_do.checked ? "[x]" : "[ ]";
+          content += `- ${checkbox} ${block.to_do.rich_text.map(text => text.plain_text).join("")}\n`;
+        } else if (block.type === "quote") {
+          content += `> ${block.quote.rich_text.map(text => text.plain_text).join("")}\n\n`;
+        } else if (block.type === "code") {
+          content += ""
+} else {
+          // Handle other block types as needed, or ignore them
+          console.log(`Skipping unsupported block type: ${block.type}`);
+        }
+      }
+
+
+      // Ensure the post directory exists
+      if (!fs.existsSync(postDirectory)) {
+        fs.mkdirSync(postDirectory, { recursive: true });
+      }
+
+      let localCoverImagePath = "";
+      if (coverImageUrl) {
+        try {
+          const response = await axios({
+            url: coverImageUrl,
+            responseType: 'stream',
+          });
+          const coverImagePath = path.join(postDirectory, 'thumbnail.png');
+          const writer = fs.createWriteStream(coverImagePath);
+          response.data.pipe(writer);
+          await new Promise((resolve, reject) => {
+            writer.on('finish', resolve);
+            writer.on('error', reject);
+          });
+          console.log(`Downloaded cover image for ${title}`);
+        } catch (error) {
+          console.error(`Error downloading cover image for ${title}:`, error.message);
+          localCoverImagePath = ""; // Reset if download fails
+        }
+      }
+
+      // Write index.json
+      const postMetadata = {
+        id: pageId,
+        title,
+        date,
+        summary
+      };
+
+      fs.writeFileSync(path.join(postDirectory, "index.json"), JSON.stringify(postMetadata, null, 2));
+
+      // Write custom-styles.css if custom styles exist
+      if (customStyles) {
+        fs.writeFileSync(path.join(postDirectory, "custom-styles.css"), customStyles);
+        console.log(`Wrote custom styles for ${title}`);
+      }
+
+      // Write index.md
+      fs.writeFileSync(path.join(postDirectory, "index.md"), content);
+
+      posts.push({
+        title,
+        date,
+        summary,
+      });
+    }
+
+    fs.writeFileSync(manifestPath, JSON.stringify(posts, null, 2));
+    console.log(`✅ Wrote ${posts.length} posts to ${manifestPath}`);
+
+  } catch (error) {
+    console.error("Error fetching blog posts from Notion:", error);
+  }
 }
 
 main();
