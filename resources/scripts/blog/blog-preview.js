@@ -47,7 +47,7 @@ const compileBlogPostPreview = (post) => {
             <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${convertTitleToDirName(post.title)}">
                 <small>${new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</small>
                 <h4 class="mt-3">${post.title}</h4>
-                <p>"${post.description}"</p>
+                <p>"${post.summary}"</p>
             </a>
         </div>
     </div>
