@@ -3,7 +3,7 @@ const path = require("path");
 const { Client } = require("@notionhq/client");
 const axios = require("axios");
 
-const { NOTION_POST_DATABASE_ID, NOTION_API_KEY } = process.env;
+const { NOTION_POST_DATABASE_ID, NOTION_TOKEN } = process.env;
 
 const postsDir = path.join("blog", "posts");
 const manifestPath = path.join(__dirname, '..', "blog", "post-manifest.json");
@@ -19,12 +19,12 @@ function isPastOrToday(dateStr) {
 }
 
 async function main() {
-  if (!NOTION_POST_DATABASE_ID || !NOTION_API_KEY) {
-    console.error("Please provide NOTION_POST_DATABASE_ID and NOTION_API_KEY environment variables.");
+  if (!NOTION_POST_DATABASE_ID || !NOTION_TOKEN) {
+    console.error("Please provide NOTION_POST_DATABASE_ID and NOTION_TOKEN environment variables.");
     process.exit(1);
 }
 
-  const notion = new Client({ auth: NOTION_API_KEY });
+  const notion = new Client({ auth: NOTION_TOKEN });
 
   // Ensure the posts directory exists
   if (!fs.existsSync(postsDir)) {
