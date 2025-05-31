@@ -114,22 +114,13 @@ async function main() {
           const imageBuffer = response.data;
 
           const image = sharp(imageBuffer);
-          const metadata = await image.metadata();
 
-          // Write the image as thumbnail with higher compression
-          let thumbnailOutputPath = path.join(postDirectory, 'thumbnail.png'); // Default to PNG
-          let coverOutputPath = path.join(postDirectory, 'cover.png'); // Default to PNG
-          if (metadata.format === 'jpeg' || metadata.format === 'jpg') {
-            thumbnailOutputPath = path.join(postDirectory, 'thumbnail.jpg');
-            await image.jpeg({ quality: 60 }).toFile(thumbnailOutputPath);
-            coverOutputPath = path.join(postDirectory, 'cover.jpg');
-            await image.jpeg({ quality: 80 }).toFile(coverOutputPath);
-          } else if (metadata.format === 'png') {
-            await image.png({ compressionLevel: 9 }).toFile(thumbnailOutputPath);
-            await image.png({ compressionLevel: 6 }).toFile(coverOutputPath); // Lower compression for cover
-          } else {
-            console.log(`Unsupported thumbnail image format for ${title}: ${metadata.format}. Skipping compression.`);
-          }
+          // Always convert to JPG and write
+          const thumbnailOutputPath = path.join(postDirectory, 'thumbnail.jpg');
+          const coverOutputPath = path.join(postDirectory, 'cover.jpg');
+
+          await image.jpeg({ quality: 60 }).toFile(thumbnailOutputPath);
+          await image.jpeg({ quality: 80 }).toFile(coverOutputPath);
 
           console.log(`Downloaded cover image for ${title}`);
         } catch (error) {

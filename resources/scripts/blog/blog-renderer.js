@@ -3,6 +3,7 @@ const postsListContainer = document.getElementById('posts-list');
 const postContentContainer = document.getElementById('post-content');
 const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
+
 if(!initialPostName) {
   const offcanvasElement = document.getElementById('offcanvas');
   const offcanvas = new bootstrap.Offcanvas(offcanvasElement);
@@ -33,15 +34,9 @@ const renderPost = (postName) => {
     const heroSection = document.createElement('div');
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
     
-    // Check for cover image with .jpg or .png extension
+    // Assume cover image is always .jpg
     const coverJpgPath = `/blog/posts/${postName}/cover.jpg`;
-    const coverPngPath = `/blog/posts/${postName}/cover.png`;
-    fetch(coverJpgPath, { method: 'HEAD' })
-      .then(response => {
-        const coverPath = response.ok ? coverJpgPath : coverPngPath;
-        document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverPath})`);
-      })
-      .catch(() => document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverPngPath})`)); // Fallback to .png if fetch fails
+    document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverJpgPath})`);
     
     const textOverlay = document.createElement('div');
     textOverlay.classList.add('text-shadow');

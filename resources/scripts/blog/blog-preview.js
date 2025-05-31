@@ -41,7 +41,7 @@ const compileBlogPostPreview = (post) => {
     const blogPreview = `
     <div class="blog-post-preview mb-4">
         <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${convertTitleToDirName(post.title)}">
-            <img class="blog-thumbnail" src="./blog/posts/${convertTitleToDirName(post.title)}/thumbnail.png" alt="${post.title}" class="rounded">
+            <img class="blog-thumbnail" src="./blog/posts/${convertTitleToDirName(post.title)}/thumbnail.jpg" alt="${post.title}" class="rounded">
         </a>
         <div class="d-flex flex-column">
             <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${convertTitleToDirName(post.title)}">
