@@ -59,8 +59,10 @@ const renderPost = (postName) => {
     heroSection.appendChild(textOverlay);
     postContentContainer.appendChild(heroSection);
 
-    const htmlContent = window.marked.parse(markdownContent);
-    postContentContainer.innerHTML += htmlContent; // Add the body content
+    gtag('event', 'page_view', {
+      page_path: `/blog/index.html?post=${initialPostName}`,
+      page_title: initialPostName.replace(/-/g, ' ') // optional
+    });
     
     // Fetch and apply custom styles
     const customStylesPath = `${postFolderPath}/custom-styles.css`;
