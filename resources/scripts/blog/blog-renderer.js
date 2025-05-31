@@ -32,7 +32,16 @@ const renderPost = (postName) => {
     // Create the hero section
     const heroSection = document.createElement('div');
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
-    document.documentElement.style.setProperty('--blog-hero-background-image', `url(/blog/posts/${postName}/thumbnail.png)`);
+    
+    // Check for cover image with .jpg or .png extension
+    const coverJpgPath = `/blog/posts/${postName}/cover.jpg`;
+    const coverPngPath = `/blog/posts/${postName}/cover.png`;
+    fetch(coverJpgPath, { method: 'HEAD' })
+      .then(response => {
+        const coverPath = response.ok ? coverJpgPath : coverPngPath;
+        document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverPath})`);
+      })
+      .catch(() => document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverPngPath})`)); // Fallback to .png if fetch fails
     
     const textOverlay = document.createElement('div');
     textOverlay.classList.add('text-shadow');
