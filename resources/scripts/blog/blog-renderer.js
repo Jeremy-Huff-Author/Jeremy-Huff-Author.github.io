@@ -58,7 +58,7 @@ const renderPost = (postName) => {
     postContentContainer.innerHTML += htmlContent; // Add the body content
 
     gtag('event', 'page_view', {
-      page_path: `/blog/index.html?post=${initialPostName}`,
+      page_path: `/blog/${initialPostName}`,
       page_title: initialPostName.replace(/-/g, ' ') // optional
     });
     
