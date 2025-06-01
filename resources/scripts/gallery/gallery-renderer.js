@@ -13,7 +13,7 @@ fetch('/gallery/manifest.json')
 
       const img = document.createElement('img');
       img.classList.add('d-block', 'w-100');
-      img.src = `${entry.path}/cover.jpg`;
+      img.src = `/${entry.path}/cover.jpg`;
 
       carouselItem.appendChild(img);
       carouselInner.appendChild(carouselItem);
