@@ -85,8 +85,12 @@ const buildGallery= async () => {
       }
       fs.writeFileSync(path.join(locationDir, "content.md"), markdownContent);
 
-      // Create empty custom-styles.css
-      fs.writeFileSync(path.join(locationDir, "custom-styles.css"), "");
+      // Write custom styles if available
+      const customStyles = location.properties['Custom Styles']?.rich_text?.[0]?.plain_text || '';
+      const customStylesPath = path.join(locationDir, "custom-styles.css");
+      if (customStyles) {
+        fs.writeFileSync(customStylesPath, customStyles);
+      }
 
       galleryEntries.push({
  path: `${galleryDir}/${locationSlug}`
