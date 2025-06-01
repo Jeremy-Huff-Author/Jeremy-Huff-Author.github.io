@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run build script
+      - name: Run Gallery Build Script
         env:
           NOTION_TOKEN: ${{secrets.NOTION_TOKEN}}
           NOTION_LOCATION_DB_ID: ${{secrets.NOTION_LOCATION_DB_ID}}
