@@ -32,6 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         .then(response => response.json())
                         .then(data => console.log('Subscription response:', data))
                         .then(() => {
+                            gtag('event', 'mailing_list_signup', {
+                                'event_category': 'Engagement',
+                                'event_label': 'Newsletter Form',
+                                'value': 1
+                              });
                             // Clear the form and close the modal
                             const mailingListModalElement = document.getElementById('mailingListModal');
                             const modal = bootstrap.Modal.getInstance(mailingListModalElement);
