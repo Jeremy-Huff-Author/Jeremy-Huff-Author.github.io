@@ -16,15 +16,16 @@ const galleryDir = "gallery";
 
 // Function to remove existing subdirectories in gallery
 const cleanGalleryDirectory = () => {
-  if (fs.existsSync(galleryDir)) {
-    fs.readdirSync(galleryDir, { withFileTypes: true }).forEach(dirent => {
-      const fullPath = path.join(galleryDir, dirent.name);
+  const fullGalleryPath = path.resolve(__dirname, galleryDir);
+  if (fs.existsSync(fullGalleryPath)) {
+    for (const dirent of fs.readdirSync(fullGalleryPath, { withFileTypes: true })) {
       if (dirent.isDirectory()) {
+        const fullPath = path.join(fullGalleryPath, dirent.name);
         fs.rmSync(fullPath, { recursive: true, force: true });
       }
-    });
+    }
   }
-}
+};
 
 const buildGallery= async () => {
   try {
@@ -48,7 +49,6 @@ const buildGallery= async () => {
       const locationName = location.properties.Name.title[0].plain_text;
       const locationSlug = slugify(locationName, { lower: true, strict: true });
       const locationDir = path.join("gallery", locationSlug);
-      galleryEntries.push(locationDir);
 
       // Create directory for the location
       if (!fs.existsSync(locationDir)) {
