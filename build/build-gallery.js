@@ -11,16 +11,44 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 // Replace with your database ID
 const databaseId = process.env.NOTION_LOCATION_DB_ID;
 
-async function buildGallery() {
+const galleryEntries = [];
+const galleryDir = "gallery";
+
+// Function to remove existing subdirectories in gallery
+const cleanGalleryDirectory = () => {
+  if (fs.existsSync(galleryDir)) {
+    fs.readdirSync(galleryDir, { withFileTypes: true }).forEach(dirent => {
+      const fullPath = path.join(galleryDir, dirent.name);
+      if (dirent.isDirectory()) {
+        fs.rmSync(fullPath, { recursive: true, force: true });
+      }
+    });
+  }
+}
+
+const buildGallery= async () => {
   try {
     const response = await notion.databases.query({
       database_id: databaseId,
+      filter: {
+        property: 'Featured',
+        checkbox: {
+          equals: true,
+        },
+      },
+      sorts: [
+        { property: 'Name', direction: 'ascending' },
+      ],
     });
+
+    // Clean the gallery directory before building
+    cleanGalleryDirectory();
 
     for (const location of response.results) {
       const locationName = location.properties.Name.title[0].plain_text;
       const locationSlug = slugify(locationName, { lower: true, strict: true });
       const locationDir = path.join("gallery", locationSlug);
+      galleryEntries.push(locationDir);
 
       // Create directory for the location
       if (!fs.existsSync(locationDir)) {
@@ -57,8 +85,15 @@ async function buildGallery() {
       }
       fs.writeFileSync(path.join(locationDir, "content.md"), markdownContent);
 
+      // Create empty custom-styles.css
+      fs.writeFileSync(path.join(locationDir, "custom-styles.css"), "");
+
+      galleryEntries.push({
+ path: `${galleryDir}/${locationSlug}`
+      });
     }
 
+    fs.writeFileSync("gallery/manifest.json", JSON.stringify(galleryEntries, null, 2));
     console.log('Gallery built successfully!');
 
   } catch (error) {
