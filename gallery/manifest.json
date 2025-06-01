@@ -1,1 +1,62 @@
-[]
+[
+  "gallery/botmer-spur",
+  {
+    "path": "gallery/botmer-spur"
+  },
+  "gallery/doc-lewins-office",
+  {
+    "path": "gallery/doc-lewins-office"
+  },
+  "gallery/first-crime-scene",
+  {
+    "path": "gallery/first-crime-scene"
+  },
+  "gallery/levendom",
+  {
+    "path": "gallery/levendom"
+  },
+  "gallery/manorface",
+  {
+    "path": "gallery/manorface"
+  },
+  "gallery/noonstreet-market",
+  {
+    "path": "gallery/noonstreet-market"
+  },
+  "gallery/orwid-way",
+  {
+    "path": "gallery/orwid-way"
+  },
+  "gallery/the-bath-house",
+  {
+    "path": "gallery/the-bath-house"
+  },
+  "gallery/the-botmer-home",
+  {
+    "path": "gallery/the-botmer-home"
+  },
+  "gallery/the-pits",
+  {
+    "path": "gallery/the-pits"
+  },
+  "gallery/the-reeking-way",
+  {
+    "path": "gallery/the-reeking-way"
+  },
+  "gallery/the-tower",
+  {
+    "path": "gallery/the-tower"
+  },
+  "gallery/the-twix",
+  {
+    "path": "gallery/the-twix"
+  },
+  "gallery/threeside",
+  {
+    "path": "gallery/threeside"
+  },
+  "gallery/threeside-vapor-gate",
+  {
+    "path": "gallery/threeside-vapor-gate"
+  }
+]
