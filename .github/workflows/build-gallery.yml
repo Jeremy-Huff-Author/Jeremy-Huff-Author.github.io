@@ -8,6 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
     steps:
       - name: Checkout repository
@@ -37,4 +42,4 @@ jobs:
           git add gallery/*
           git diff --cached --quiet || git commit -m "Update Gallery"
           git log -1
-          git push origin HEAD
+          git push origin HEAD:${{ github.ref_name }}
