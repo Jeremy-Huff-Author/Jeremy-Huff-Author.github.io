@@ -1,8 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const { Client } = require("@notionhq/client");
-const axios = require("axios");
 const sharp = require("sharp");
+const slugify = require("slugify");
+const axios = require('axios');
 
 // Initialize Notion client (replace with your integration token)
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
@@ -16,8 +17,46 @@ async function buildGallery() {
       database_id: databaseId,
     });
 
-    for (const page of response.results) {
-      console.log(page);
+    for (const location of response.results) {
+      const locationName = location.properties.Name.title[0].plain_text;
+      const locationSlug = slugify(locationName, { lower: true, strict: true });
+      const locationDir = path.join("gallery", locationSlug);
+
+      // Create directory for the location
+      if (!fs.existsSync(locationDir)) {
+        fs.mkdirSync(locationDir);
+      }
+
+      // Download and save cover image
+      if (location.cover && location.cover.file && location.cover.file.url) {
+        const coverUrl = location.cover.file.url;
+        const coverPath = path.join(locationDir, "cover.jpg");
+        try {
+          const response = await axios({
+            url: coverUrl,
+            responseType: 'arraybuffer'
+          });
+          await sharp(response.data).toFile(coverPath);
+        } catch (error) {
+          console.error(`Error downloading cover image for ${locationName}:`, error);
+        }
+      }
+
+      // Fetch and save page blocks as markdown (simplified - Notion API blocks need parsing)
+      const blocksResponse = await notion.blocks.children.list({
+        block_id: location.id,
+        page_size: 100, // Adjust as needed
+      });
+
+      let markdownContent = '';
+      // Basic handling - You'll need to expand this to properly convert Notion blocks to markdown
+      for (const block of blocksResponse.results) {
+        if (block.type === 'paragraph' && block.paragraph.rich_text.length > 0) {
+          markdownContent += block.paragraph.rich_text[0].plain_text + '\n\n';
+        }
+      }
+      fs.writeFileSync(path.join(locationDir, "content.md"), markdownContent);
+
     }
 
     console.log('Gallery built successfully!');
