@@ -1,6 +1,8 @@
-const { Client } = require('@notionhq/client');
-const path = require('path');
-const fs = require('fs').promises;
+const fs = require("fs");
+const path = require("path");
+const { Client } = require("@notionhq/client");
+const axios = require("axios");
+const sharp = require("sharp");
 
 // Initialize Notion client (replace with your integration token)
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
