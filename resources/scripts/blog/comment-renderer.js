@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     commentsSection.innerHTML += commentHTML;
 
                 });
+                commentsSection.classList.remove('d-none');
                 checkFooterSticky();
             } else {
                 const noCommentsElement = document.createElement('p');
