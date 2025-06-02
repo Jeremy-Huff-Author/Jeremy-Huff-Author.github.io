@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(posts => {
 
             // Sort posts by date descending and take the first two
-            const recentPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
+            const recentPosts = posts.sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 2);
 
             const postsContainer = document.querySelector('.blog'); // Assuming you have an element with this class
             if (!postsContainer) {
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             recentPosts.forEach(post => {
                 const postElement = document.createElement('div');
                 postElement.innerHTML = compileBlogPostPreview(post);
-                postElement.classList.add('col-md-6'); // Adjust column class if needed
-                postsContainer.appendChild(postElement);
+                postElement.classList.add('col-md-5'); // Adjust column class if needed
+                postsContainer.prepend(postElement);
             });
         })
         .catch(error => {
