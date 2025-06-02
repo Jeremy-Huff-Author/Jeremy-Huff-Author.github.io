@@ -1,4 +1,4 @@
-const shareButton = document.querySelectorAll('.share-btn');
+const shareButton = document.querySelectorAll('.share-btn')[0];
 
 if(shareButton) {
   shareButton.addEventListener('click', event => {
