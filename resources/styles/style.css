@@ -10,7 +10,8 @@ p, a, li {
      font-family: sans-serif; /* Sans-serif font for body */
 }
 
-.share-icon {
+.share-icon,
+.share-btn i {
     color: #f9f8e2;
 }
 

@@ -1,19 +1,29 @@
+const shareButton = document.querySelectorAll('.share-btn');
+
+if(shareButton) {
+  shareButton.addEventListener('click', event => {
+    event.preventDefault();
+    if (navigator.canShare && navigator.canShare({ url: window.location.href })) {
+      navigator.share({
+        title: document.title,
+        text: "Check out this author's site!",
+        url: window.location.href
+      });
+    } else {
+      const sharingModalElement = document.getElementById('shareModal');
+          const modal = bootstrap.Modal.getInstance(sharingModalElement);
+          if (modal) {
+              modal.show();
+          }
+    }
+  });
+}
+
 document.querySelectorAll('.share-icon').forEach(el => {
     el.addEventListener('click', event => {
         event.preventDefault();  // Prevent the default '#' navigation
         const platform = el.dataset.platform;  // "reddit", "twitter", etc.
-        
-        if (navigator.canShare && navigator.canShare({ url: window.location.href })) {
-          navigator.share({
-            title: document.title,
-            text: "Check out this author's site!",
-            url: window.location.href
-          });
-        } else {
-          handleShare(platform);        
-        }
-        
-        
+        handleShare(platform);  
         const sharingModalElement = document.getElementById('shareModal');
         const modal = bootstrap.Modal.getInstance(sharingModalElement);
         if (modal) {
