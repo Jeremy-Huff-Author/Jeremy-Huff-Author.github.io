@@ -46,6 +46,11 @@ main {
     position: relative;
 }
 
+.share-icon,
+.share-btn i {
+    color: #f9f8e2;
+}
+
 .nav-item .nav-link.active::after {
     content: '';
     position: absolute;
