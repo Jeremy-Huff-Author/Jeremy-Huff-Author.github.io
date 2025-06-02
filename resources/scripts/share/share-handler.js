@@ -13,7 +13,7 @@ if(shareButton) {
     } else {
       console.log("Fallback share");
       const sharingModalElement = document.getElementById('shareModal');
-      const modal = bootstrap.Modal.getInstance(sharingModalElement);
+      const modal = bootstrap.Modal.getOrCreateInstance(sharingModalElement);
       if (modal) {
           console.log("Open Share Modal");
           modal.show();
