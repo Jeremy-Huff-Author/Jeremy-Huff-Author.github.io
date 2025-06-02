@@ -72,6 +72,12 @@ const renderPost = (postName) => {
       document.head.appendChild(styleTag);
     })
     .catch(error => console.error('Error fetching custom styles:', error));
+    
+    const commentFormLauncher = document.getElementById('comment-form-launcher');
+    if(commentFormLauncher) {
+      commentFormLauncher.classList.remove('d-none');
+    }
+    
     checkFooterSticky();
   })
   .catch(error => console.error('Error fetching post data:', error));
