@@ -76,10 +76,12 @@ const shareToFacebook = (pageUrl) => {
   }
 
 const shareToEmail = (pageUrl, pageTitle) => {
-    const subject = encodeURIComponent(`Check this out: ${decodeURIComponent(pageTitle)}`);
-    const body = encodeURIComponent(`I thought you might find this interesting:\n\n${decodeURIComponent(pageTitle)}\n${decodeURIComponent(pageUrl)}`);
-    const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
-    window.open(mailtoLink);
+  const pageUrl = encodeURIComponent(window.location.href);
+  const pageTitle = encodeURIComponent(document.title);
+  const subject = encodeURIComponent(`Check this out: ${decodeURIComponent(pageTitle)}`);
+  const body = encodeURIComponent(`I wanted to share this author's website:\n\n${decodeURIComponent(pageTitle)}\n${decodeURIComponent(pageUrl)}`);
+  const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
+  window.location.href = mailtoLink;
 }
  
 
