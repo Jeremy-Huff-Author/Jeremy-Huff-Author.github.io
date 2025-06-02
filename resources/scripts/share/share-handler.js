@@ -3,6 +3,11 @@ document.querySelectorAll('.share-icon').forEach(el => {
         event.preventDefault();  // Prevent the default '#' navigation
         const platform = el.dataset.platform;  // "reddit", "twitter", etc.
         handleShare(platform);
+        const sharingModalElement = document.getElementById('shareModal');
+        const modal = bootstrap.Modal.getInstance(sharingModalElement);
+        if (modal) {
+            modal.hide();
+        }
     });
 });
 
