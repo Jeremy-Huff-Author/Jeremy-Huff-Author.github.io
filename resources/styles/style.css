@@ -153,3 +153,53 @@ p, a, li {
     margin-bottom: 0rem;
     font-size: small;
 }
+
+.blog-more-button {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    background: #333333;
+    padding: 7px 7px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.blog-more-button-outer {
+    display: flex;
+    width: 100%;
+    background: #fde86f;
+    padding: 2px;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-more-button-inner {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    background: #333333;
+    height: 100%;
+    color: #fee86f;;
+}
+
+.blog-more-button-inner p {
+    font-size: 1.5em;
+    text-align: center;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+.blog-more-button-inner img {
+    max-width: 100%;
+    display: flex;
+    align-self: stretch;
+}
+
+
+
+
+
