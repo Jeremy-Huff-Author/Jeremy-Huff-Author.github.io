@@ -156,7 +156,7 @@ p, a, li {
 
 .blog-more-button {
     display: flex;
-    max-height: 250px;
+    height: 250px;
     background: #333333;
     padding: 7px 7px;
     text-decoration: none;
@@ -191,13 +191,14 @@ p, a, li {
     justify-self: center;
 }
 
-.blog-more-button-inner img {
-    max-width: 100%;
-    display: flex;
-    align-self: stretch;
+.blog-more-button-inner p::after {
+    content: '';
+    position: absolute;
+    justify-self: anchor-center;
+    align-self: anchor-center;
+    bottom: -29px;
+    width: 100px;
+    height: 50px;
+    background-image: url(../images/underline.png);
+    background-size: contain;
 }
-
-
-
-
-
