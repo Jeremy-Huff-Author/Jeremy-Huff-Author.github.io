@@ -4,17 +4,20 @@ if(shareButton) {
   shareButton.addEventListener('click', event => {
     event.preventDefault();
     if (/Mobi|Android/i.test(navigator.userAgent) && navigator.canShare && navigator.canShare({ url: window.location.href })) {
+      console.log("Native share");
       navigator.share({
         title: document.title,
         text: "Check out this author's site!",
         url: window.location.href
       });
     } else {
+      console.log("Fallback share");
       const sharingModalElement = document.getElementById('shareModal');
-          const modal = bootstrap.Modal.getInstance(sharingModalElement);
-          if (modal) {
-              modal.show();
-          }
+      const modal = bootstrap.Modal.getInstance(sharingModalElement);
+      if (modal) {
+          console.log("Open Share Modal");
+          modal.show();
+      }
     }
   });
 }
