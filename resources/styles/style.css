@@ -201,5 +201,5 @@ p, a, li {
     background-image: url(../images/underline.png);
     background-size: cover;
     background-repeat: no-repeat;
-    sepia(15) saturate(8) hue-rotate(335deg)
+    filter: sepia(15) saturate(8) hue-rotate(335deg);
 }
