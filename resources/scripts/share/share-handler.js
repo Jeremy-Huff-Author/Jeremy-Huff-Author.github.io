@@ -76,8 +76,6 @@ const shareToFacebook = (pageUrl) => {
   }
 
 const shareToEmail = (pageUrl, pageTitle) => {
-  const pageUrl = encodeURIComponent(window.location.href);
-  const pageTitle = encodeURIComponent(document.title);
   const subject = encodeURIComponent(`Check this out: ${decodeURIComponent(pageTitle)}`);
   const body = encodeURIComponent(`I wanted to share this author's website:\n\n${decodeURIComponent(pageTitle)}\n${decodeURIComponent(pageUrl)}`);
   const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
