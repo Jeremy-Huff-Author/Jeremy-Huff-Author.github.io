@@ -203,3 +203,7 @@ p, a, li {
     background-repeat: no-repeat;
     filter: sepia(15) saturate(8) hue-rotate(335deg);
 }
+
+.blog-thumbnail {
+    border: #fee86f solid 1px;
+}
