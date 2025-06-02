@@ -10,6 +10,10 @@ p, a, li {
      font-family: sans-serif; /* Sans-serif font for body */
 }
 
+.share-icon {
+    color: #f9f8e2;
+}
+
 .hero-section {
     background-image: url('../images/hero.png');
     background-size: cover;

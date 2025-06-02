@@ -59,7 +59,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#shareModal"><i class="fas fa-share-alt"></i></button>
+                        <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#shareModal">
+                            <i class="share-icon fa-solid fa-share-nodes fa-lg"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -154,16 +156,12 @@
     <div class="modal fade" id="shareModal" tabindex="-1" aria-labelledby="shareModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="shareModalLabel">Share This Page</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
                 <div class="modal-body d-flex justify-content-around">
-                    <a href="#" class="share-icon" data-platform="reddit"><i class="fab fa-reddit"></i></a>
-                    <a href="#" class="share-icon" data-platform="twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" class="share-icon" data-platform="facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="share-icon" data-platform="email"><i class="fas fa-envelope"></i></a>
-                    <a href="#" class="share-icon" data-platform="link"><i class="fas fa-link"></i></a>
+                    <a href="#" class="share-icon" data-platform="reddit"><i class="fa-brands fa-reddit fa-2xl"></i></a>
+                    <a href="#" class="share-icon" data-platform="twitter"><i class="fa-brands fa-x-twitter fa-2xl"></i></a>
+                    <a href="#" class="share-icon" data-platform="facebook"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
+                    <a href="#" class="share-icon" data-platform="email"><i class="fa-solid fa-envelope fa-2xl"></i></a>
+                    <a href="#" class="share-icon" data-platform="copy"><i class="fa-solid fa-copy fa-2xl"></i></a>
                 </div>
             </div>
         </div>
