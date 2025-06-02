@@ -180,7 +180,7 @@ p, a, li {
     align-content: center;
     background: #333333;
     height: 100%;
-    color: #fee86f;;
+    color: #fee86f;
 }
 
 .blog-more-button-inner p {
@@ -201,4 +201,5 @@ p, a, li {
     background-image: url(../images/underline.png);
     background-size: cover;
     background-repeat: no-repeat;
+    filter: sepia(1) saturate(3) hue-rotate(180deg);
 }
