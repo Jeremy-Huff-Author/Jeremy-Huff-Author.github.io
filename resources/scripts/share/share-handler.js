@@ -2,7 +2,18 @@ document.querySelectorAll('.share-icon').forEach(el => {
     el.addEventListener('click', event => {
         event.preventDefault();  // Prevent the default '#' navigation
         const platform = el.dataset.platform;  // "reddit", "twitter", etc.
-        handleShare(platform);
+        
+        if (navigator.canShare && navigator.canShare({ url: window.location.href })) {
+          navigator.share({
+            title: document.title,
+            text: "Check out this author's site!",
+            url: window.location.href
+          });
+        } else {
+          handleShare(platform);        
+        }
+        
+        
         const sharingModalElement = document.getElementById('shareModal');
         const modal = bootstrap.Modal.getInstance(sharingModalElement);
         if (modal) {
