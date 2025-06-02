@@ -7,20 +7,31 @@ The trilogy is intended to follow the story of a young man, Patricus "Treaky" Bo
 The stories are intended to present a dialectic development from the claustrophobic domed existence, to the endless freedom of the Alturan skies, and back again to resolve the conflict between these two opposing perspectives. I played around a lot with the naming scheme for these stories. Though I have not settled fully on any particular name, here are the ones I am currently leaning towards:
 
 Under the Dome Sky
+
 Over the Cloud Sea
+
 The Tower In Between
+
 
 Some of the honorable mentions where:
 
+
 Treaky of Levendom
+
 Treaky the Skyborn
+
 Treaky of the Aerland
+
 
 Rejected because I felt that it was more YA than I intend for these books to be.
 
+
 The Domeling
+
 The Peacekin
+
 The Aerlord
+
 
 A close runner up.
 
