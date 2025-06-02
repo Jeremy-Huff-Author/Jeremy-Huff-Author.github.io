@@ -79,8 +79,13 @@ const shareToEmail = (pageUrl, pageTitle) => {
   const subject = encodeURIComponent(`Check this out: ${decodeURIComponent(pageTitle)}`);
   const body = encodeURIComponent(`I wanted to share this author's website:\n\n${decodeURIComponent(pageTitle)}\n${decodeURIComponent(pageUrl)}`);
   const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
-  console.log(mailtoLink);
-  window.location.href = mailtoLink;
+  const tempLink = document.createElement('a');
+  tempLink.href = mailtoLink;
+  tempLink.style.display = 'none';
+  tempLink.target = '_blank';
+  document.body.appendChild(tempLink);
+  tempLink.click();  // Simulate a user click on a real link
+  document.body.removeChild(tempLink);
 }
  
 
