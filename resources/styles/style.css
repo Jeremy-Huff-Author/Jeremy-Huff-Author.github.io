@@ -189,16 +189,16 @@ p, a, li {
     display: flex;
     align-self: center;
     justify-self: center;
+    position: relative;
 }
 
 .blog-more-button-inner p::after {
     content: '';
     position: absolute;
-    justify-self: anchor-center;
-    align-self: anchor-center;
-    bottom: -29px;
-    width: 100px;
-    height: 50px;
+    bottom: -45px;
+    width: 100%;
+    height: 100px;
     background-image: url(../images/underline.png);
-    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
