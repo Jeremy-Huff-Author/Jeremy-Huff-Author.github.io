@@ -55,8 +55,9 @@ const shareToEmail = (pageUrl, pageTitle) => {
     const subject = encodeURIComponent(`Check this out: ${decodeURIComponent(pageTitle)}`);
     const body = encodeURIComponent(`I thought you might find this interesting:\n\n${decodeURIComponent(pageTitle)}\n${decodeURIComponent(pageUrl)}`);
     const mailtoLink = `mailto:?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-  }
+    window.open(mailtoLink);
+}
+ 
 
 const copyLink = (pageUrl) => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
