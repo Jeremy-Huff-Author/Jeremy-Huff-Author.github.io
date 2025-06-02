@@ -3,7 +3,7 @@ const shareButton = document.querySelectorAll('.share-btn')[0];
 if(shareButton) {
   shareButton.addEventListener('click', event => {
     event.preventDefault();
-    if (navigator.canShare && navigator.canShare({ url: window.location.href })) {
+    if (/Mobi|Android/i.test(navigator.userAgent) && navigator.canShare && navigator.canShare({ url: window.location.href })) {
       navigator.share({
         title: document.title,
         text: "Check out this author's site!",
