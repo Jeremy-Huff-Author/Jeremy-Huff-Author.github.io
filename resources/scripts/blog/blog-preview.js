@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(posts => {
 
             // Sort posts by date descending and take the first two
-            const recentPosts = posts.sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 2);
+            const recentPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 2);
+            recentPosts.reverse();
 
             const postsContainer = document.querySelector('.blog'); // Assuming you have an element with this class
             if (!postsContainer) {
