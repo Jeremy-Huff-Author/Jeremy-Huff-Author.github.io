@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash;
+    updateNavbarOpacity(); // Set opacity on page load
+
     if (hash) {
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
@@ -39,7 +41,7 @@ const scrollToTarget = (hash) => {
     }
 };
 
-window.addEventListener('scroll', () => {
+const updateNavbarOpacity = () => {
     const scrolled = window.scrollY;
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollThreshold = documentHeight * 0.1;
@@ -50,4 +52,8 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.style.setProperty('--bs-bg-opacity-custom', 1);
     }
+};
+
+window.addEventListener('scroll', () => {
+    updateNavbarOpacity();
 });
