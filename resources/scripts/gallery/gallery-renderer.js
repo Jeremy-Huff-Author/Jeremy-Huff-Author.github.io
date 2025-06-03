@@ -19,4 +19,3 @@ fetch('/gallery/manifest.json')
       carouselInner.appendChild(carouselItem);
     });
   });
-// This file intentionally left empty.
