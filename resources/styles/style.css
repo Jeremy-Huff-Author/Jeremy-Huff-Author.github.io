@@ -81,11 +81,11 @@ p, a, li {
     margin-right: 15px;
 }
 .navbar {
-    background-color: transparent !important; /* Make navbar background transparent */
-    position: absolute; /* Position over the hero image */
-    position: sticky; /* Make the navbar sticky */
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 10; /* Ensure navbar is on top */
+    --bs-bg-opacity-custom: 0;
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity-custom)) !important;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
 }
 .navbar-nav {
     display: flex; /* Use flexbox */

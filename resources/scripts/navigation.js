@@ -38,3 +38,15 @@ const scrollToTarget = (hash) => {
         }, 350);
     }
 };
+
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = scrolled / documentHeight;
+
+    if (scrollPercentage <= 0.1) {
+        document.body.style.setProperty('--bs-bg-opacity-custom', scrollPercentage / 0.1);
+    } else {
+        document.body.style.setProperty('--bs-bg-opacity-custom', 1);
+    }
+});
