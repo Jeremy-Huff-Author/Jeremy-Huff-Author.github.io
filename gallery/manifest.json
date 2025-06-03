@@ -1,29 +1,47 @@
 [
   {
-    "path": "gallery/levenaer"
+    "path": "gallery/levenaer",
+    "title": "Levenaer",
+    "description": "The skies of Altura are filled with the great floating aerlands. These marvels of humanities will to survive are grown from a native microorganism known as coral. They float on a cloud sea, each one anchored to one of the many great towers that pierce through the golden mists.\n\n"
   },
   {
-    "path": "gallery/levendom"
+    "path": "gallery/levendom",
+    "title": "Levendom",
+    "description": "Levendom is one of the many domed cities crouching at the base of the Altura’s great and ancient towers.\n\n"
   },
   {
-    "path": "gallery/manorface"
+    "path": "gallery/manorface",
+    "title": "Manorface",
+    "description": "A militarized, government-controlled district on the southern face of the tower. Reserved for the Governor’s regiment and off-limits to most domers. This is the Aerlands seat of power within the Domes.\n\n"
   },
   {
-    "path": "gallery/noonstreet-market"
+    "path": "gallery/noonstreet-market",
+    "title": "Noonstreet Market",
+    "description": ""
   },
   {
-    "path": "gallery/orwid-way"
+    "path": "gallery/orwid-way",
+    "title": "Or’wid Way",
+    "description": "A main ore-hauling road from The Pits to the tower’s southern cargo yards\n\n"
   },
   {
-    "path": "gallery/the-pits"
+    "path": "gallery/the-pits",
+    "title": "The Pits",
+    "description": "A massive terraced open-pit mine in the southwestern quadrant of the dome. Full of shaft mouths, carts, and steaming ore lifts\n\n"
   },
   {
-    "path": "gallery/the-tower"
+    "path": "gallery/the-tower",
+    "title": "The Tower",
+    "description": "An ancient, seamless vertical structure (former colony ship) at the center of Levendom. It pierces the dome and extends far above. Used for freight, lifts, and symbolic separation between classes\n\n"
   },
   {
-    "path": "gallery/the-twix"
+    "path": "gallery/the-twix",
+    "title": "The Twix",
+    "description": "A gang-dominated, narrow, winding warren of alleys northwest and west of the tower. Ill-lit and full of coded lanterns marking brothels, bathhouses, and gang territories\n\n"
   },
   {
-    "path": "gallery/threeside-vapor-gate"
+    "path": "gallery/threeside-vapor-gate",
+    "title": "Threeside Vapor Gate",
+    "description": ""
   }
 ]
