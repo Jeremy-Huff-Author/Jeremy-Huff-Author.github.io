@@ -16,9 +16,9 @@ fetch('/gallery/manifest.json')
       img.src = `/${entry.path}/cover.jpg`;
 
       const captionDiv = document.createElement('div');
-      captionDiv.classList.add('carousel-caption', 'd-none', 'd-md-block');
+      captionDiv.classList.add('carousel-caption', 'd-block');
 
-      const nameElement = document.createElement('h5');
+      const nameElement = document.createElement('h3');
       nameElement.textContent = entry.title;
 
       const descriptionElement = document.createElement('p');
