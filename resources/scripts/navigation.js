@@ -42,11 +42,12 @@ const scrollToTarget = (hash) => {
 window.addEventListener('scroll', () => {
     const scrolled = window.scrollY;
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollPercentage = scrolled / documentHeight;
+    const scrollThreshold = documentHeight * 0.1;
+    const navbar = document.querySelector('.navbar');
 
-    if (scrollPercentage <= 0.1) {
-        document.body.style.setProperty('--bs-bg-opacity-custom', scrollPercentage / 0.1);
+    if (scrolled <= scrollThreshold) {
+        navbar.style.setProperty('--bs-bg-opacity-custom', scrolled / scrollThreshold);
     } else {
-        document.body.style.setProperty('--bs-bg-opacity-custom', 1);
+        navbar.style.setProperty('--bs-bg-opacity-custom', 1);
     }
 });
