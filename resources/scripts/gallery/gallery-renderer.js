@@ -19,7 +19,7 @@ fetch('/gallery/manifest.json')
       captionDiv.classList.add('carousel-caption', 'd-none', 'd-md-block');
 
       const nameElement = document.createElement('h5');
-      nameElement.textContent = entry.name;
+      nameElement.textContent = entry.title;
 
       const descriptionElement = document.createElement('p');
       descriptionElement.textContent = entry.description;
