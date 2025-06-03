@@ -15,7 +15,19 @@ fetch('/gallery/manifest.json')
       img.classList.add('d-block', 'w-100');
       img.src = `/${entry.path}/cover.jpg`;
 
-      carouselItem.appendChild(img);
-      carouselInner.appendChild(carouselItem);
-    });
+      const captionDiv = document.createElement('div');
+      captionDiv.classList.add('carousel-caption', 'd-none', 'd-md-block');
+
+      const nameElement = document.createElement('h5');
+      nameElement.textContent = entry.name;
+
+      const descriptionElement = document.createElement('p');
+      descriptionElement.textContent = entry.description;
+
+      captionDiv.appendChild(nameElement);
+      captionDiv.appendChild(descriptionElement);
+            carouselItem.appendChild(img);
+            carouselItem.appendChild(captionDiv);
+            carouselInner.appendChild(carouselItem);
+          });
   });

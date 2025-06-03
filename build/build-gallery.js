@@ -93,7 +93,9 @@ const buildGallery= async () => {
       }
 
       galleryEntries.push({
- path: `${galleryDir}/${locationSlug}`
+        path: `${galleryDir}/${locationSlug}`,
+        title: locationName,
+        description: markdownContent
       });
     }
 
