@@ -44,7 +44,7 @@ const scrollToTarget = (hash) => {
 const updateNavbarOpacity = () => {
     const scrolled = window.scrollY;
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollThreshold = documentHeight * 0.2;
+    const scrollThreshold = documentHeight * 0.33;
     const navbar = document.querySelector('.navbar');
 
     if (scrolled <= scrollThreshold) {
