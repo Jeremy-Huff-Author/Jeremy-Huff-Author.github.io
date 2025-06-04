@@ -43,9 +43,9 @@ const scrollToTarget = (hash) => {
 
 const updateNavbarOpacity = () => {
     const scrolled = window.scrollY;
-    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollThreshold = documentHeight * 0.5;
+    const heroSection = document.querySelector('.hero-section');
     const navbar = document.querySelector('.navbar');
+    const scrollThreshold = heroSection ? heroSection.offsetHeight : 0;
 
     if (scrolled <= scrollThreshold) {
         navbar.style.setProperty('--bs-bg-opacity-custom', scrolled / scrollThreshold);
