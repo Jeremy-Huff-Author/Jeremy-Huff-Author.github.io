@@ -49,7 +49,9 @@ if(navbarTogler) {
             navbar.classList.toggle('open');
             if(navbar.classList.contains('open')) {
                 navbar.style.setProperty('--bs-bg-opacity-custom', 1);
-            } 
+            } else {
+                navbar.style.setProperty('--bs-bg-opacity-custom', 0);
+            }
         }
     });
 }
