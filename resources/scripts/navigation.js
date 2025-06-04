@@ -64,6 +64,7 @@ const updateNavbarOpacity = () => {
     console.log("navbarCollape.classList.contains('collapsing')", navbarCollape.classList.contains('collapsing'));
     console.log("navbarCollape && !(navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing'))");
     if (navbarCollape && !(navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing'))) {
+        console.log("skipping updateNavbarOpacity()");
         return;
     }
 
