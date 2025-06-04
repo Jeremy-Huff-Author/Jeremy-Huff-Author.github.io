@@ -1,5 +1,5 @@
 const checkFooterSticky = () => {
-  const contentHeight = document.documentElement.scrollHeight;
+  const contentHeight = document.body.scrollHeight;
   const viewportHeight = window.innerHeight;
   const footer = document.querySelector('footer');
   const footerHeight = footer ? footer.offsetHeight : 0;
@@ -19,4 +19,9 @@ const checkFooterSticky = () => {
 document.addEventListener('DOMContentLoaded', () => {
   checkFooterSticky();
   window.addEventListener('resize', checkFooterSticky);
+  const offcanvas = document.getElementById('offcanvas');
+  if (offcanvas) {
+    offcanvas.addEventListener('hidden.bs.offcanvas', checkFooterSticky);
+    offcanvas.addEventListener('shown.bs.offcanvas', checkFooterSticky);
+  }
 });
