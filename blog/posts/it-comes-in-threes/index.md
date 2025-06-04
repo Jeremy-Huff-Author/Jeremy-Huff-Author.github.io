@@ -32,6 +32,8 @@ A close runner up.
 
 I opted for the ones I chose because they are more lyrical and they seemed to fit the literary vibe that I am trying to achieve. I mocked up some covers and I really like the look so far.
 
+![](/blog/posts/it-comes-in-threes/image-1.jpg)
+
 All feedback welcome!
 
 
