@@ -15,3 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   checkFooterSticky();
   window.addEventListener('resize', checkFooterSticky);
 });
+
+// Ensure the footer position is recalculated after all resources such as
+// images have loaded. This helps with pages that dynamically add content
+// or include images that change the overall height after DOMContentLoaded.
+window.addEventListener('load', checkFooterSticky);
