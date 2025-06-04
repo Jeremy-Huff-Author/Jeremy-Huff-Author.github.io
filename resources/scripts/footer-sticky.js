@@ -12,5 +12,6 @@ const checkFooterSticky = () => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  checkFooterSticky();
   window.addEventListener('resize', checkFooterSticky);
 });
