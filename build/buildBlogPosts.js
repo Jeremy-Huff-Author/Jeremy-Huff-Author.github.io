@@ -63,6 +63,10 @@ async function main() {
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
       const postDirectory = path.join(postsDir, slug);
 
+      if (!fs.existsSync(postDirectory)) {
+        fs.mkdirSync(postDirectory, { recursive: true });
+      }
+
       // Fetch the content of the page
       const contentResponse = await notion.blocks.children.list({
         block_id: pageId,
@@ -71,6 +75,7 @@ async function main() {
 
       // Basic content extraction (you might need to enhance this based on your Notion block types)
       let content = "";
+      let imageCount = 0;
       for (const block of contentResponse.results) {
         if (block.type === "paragraph") {
           content += block.paragraph.rich_text.map(text => text.plain_text).join("") + "\n\n";
@@ -94,17 +99,29 @@ async function main() {
           const lang = block.code.language || "";
           const codeText = block.code.rich_text.map(text => text.plain_text).join("");
           content += `\n\n\`\`\`${lang}\n${codeText}\n\`\`\`\n\n`;
+        } else if (block.type === "image") {
+          const imageUrl = block.image.file?.url || block.image.external?.url;
+          const caption = block.image.caption.map(t => t.plain_text).join("");
+          if (imageUrl) {
+            try {
+              imageCount += 1;
+              const urlObj = new URL(imageUrl);
+              const ext = path.extname(urlObj.pathname) || '.jpg';
+              const imageName = `image-${imageCount}${ext}`;
+              const outputPath = path.join(postDirectory, imageName);
+              const response = await axios({ url: imageUrl, responseType: 'arraybuffer' });
+              await sharp(response.data).toFile(outputPath);
+              content += `![${caption}](/blog/posts/${slug}/${imageName})\n\n`;
+            } catch (err) {
+              console.error(`Error downloading image for ${title}:`, err.message);
+            }
+          }
         } else {
           // Handle other block types as needed, or ignore them
           console.log(`Skipping unsupported block type: ${block.type}`);
         }
       }
 
-
-      // Ensure the post directory exists
-      if (!fs.existsSync(postDirectory)) {
-        fs.mkdirSync(postDirectory, { recursive: true });
-      }
 
       let localCoverImagePath = "";
       if (coverImageUrl) {
