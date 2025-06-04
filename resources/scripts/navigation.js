@@ -52,7 +52,22 @@ if(navbarTogler) {
                 origOpacity = navbar.style.getPropertyValue('--bs-bg-opacity-custom');
                 navbar.style.setProperty('--bs-bg-opacity-custom', 1);
             } else {
-                navbar.style.setProperty('--bs-bg-opacity-custom', origOpacity);
+                const startOpacity = parseFloat(navbar.style.getPropertyValue('--bs-bg-opacity-custom'));
+                const endOpacity = parseFloat(origOpacity);
+                const duration = 350; // 0.35 seconds
+                const startTime = performance.now();
+
+                function animateOpacity(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    const currentOpacity = startOpacity + (endOpacity - startOpacity) * progress;
+                    navbar.style.setProperty('--bs-bg-opacity-custom', currentOpacity);
+
+                    if (elapsedTime < duration) {
+                        requestAnimationFrame(animateOpacity);
+                    }
+                }
+                requestAnimationFrame(animateOpacity);
             }
         }
     });
