@@ -41,7 +41,26 @@ const scrollToTarget = (hash) => {
     }
 };
 
+const navbarTogler = document.querySelector('.navbar-toggler');
+if(navbarTogler) {
+    navbarTogler.addEventListener('click', () => {
+        const navbar = document.querySelector('.navbar');
+        if(navbar) {
+            navbar.classList.toggle('open');
+            if(navbar.classList.contains('open')) {
+                navbar.style.setProperty('--bs-bg-opacity-custom', 1);
+            } 
+        }
+    });
+}
+
 const updateNavbarOpacity = () => {
+
+    const navbarTogler = document.querySelector('.navbar-toggler');
+    if (navbarTogler && !navbarTogler.classList.contains('collapsed')) {
+        return
+    }
+
     const scrolled = window.scrollY;
     const heroSection = document.querySelector('.hero-section');
     const navbar = document.querySelector('.navbar');

@@ -87,11 +87,17 @@ p, a, li {
     width: 100%;
     z-index: 10;
 }
+
+.navbar.open {
+    transition: background-color 0.3s ease-in-out;
+}
+
 .navbar-nav {
     display: flex; /* Use flexbox */
     flex-grow: 0.85; /* Allow the nav-items to grow */
     justify-content: space-around; /* Distribute space evenly */
 }
+
 .navbar .nav-link {
     font-family: 'Georgia', serif; /* Victorian-style serif font, fallback to generic serif */
     color: rgba(248, 249, 250, 0.8); /* Slightly transparent light color for links */
