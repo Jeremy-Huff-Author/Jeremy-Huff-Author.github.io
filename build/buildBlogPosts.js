@@ -91,8 +91,10 @@ async function main() {
         } else if (block.type === "quote") {
           content += `> ${block.quote.rich_text.map(text => text.plain_text).join("")}\n\n`;
         } else if (block.type === "code") {
-          content += ""
-} else {
+          const lang = block.code.language || "";
+          const codeText = block.code.rich_text.map(text => text.plain_text).join("");
+          content += `\n\n\`\`\`${lang}\n${codeText}\n\`\`\`\n\n`;
+        } else {
           // Handle other block types as needed, or ignore them
           console.log(`Skipping unsupported block type: ${block.type}`);
         }
