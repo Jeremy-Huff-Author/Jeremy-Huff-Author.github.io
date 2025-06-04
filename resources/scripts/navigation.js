@@ -46,11 +46,12 @@ if(navbarTogler) {
     navbarTogler.addEventListener('click', () => {
         const navbar = document.querySelector('.navbar');
         if(navbar) {
+            let origOpacity = navbar.style.getPropertyValue('--bs-bg-opacity-custom');
             navbar.classList.toggle('open');
             if(navbar.classList.contains('open')) {
                 navbar.style.setProperty('--bs-bg-opacity-custom', 1);
             } else {
-                navbar.style.setProperty('--bs-bg-opacity-custom', 0);
+                navbar.style.setProperty('--bs-bg-opacity-custom', origOpacity);
             }
         }
     });
@@ -58,8 +59,8 @@ if(navbarTogler) {
 
 const updateNavbarOpacity = () => {
 
-    const navbarTogler = document.querySelector('.navbar-toggler');
-    if (navbarTogler && !navbarTogler.classList.contains('collapsed')) {
+    const navbarCollape = document.querySelector('.navbar-collapse');
+    if (navbarCollape && !(navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing'))) {
         return
     }
 

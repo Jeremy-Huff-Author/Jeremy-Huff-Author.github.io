@@ -74,12 +74,14 @@ p, a, li {
     border: #ead47b solid thin;
     box-shadow: 1px 7px 16px rgba(0, 0, 0, 0.5);
 }
+
 .blog-post-preview img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     margin-right: 15px;
 }
+
 .navbar {
     --bs-bg-opacity-custom: 0;
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity-custom)) !important;
