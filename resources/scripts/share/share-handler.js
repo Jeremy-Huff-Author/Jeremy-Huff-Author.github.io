@@ -10,6 +10,12 @@ if(shareButton) {
         text: "Check out this author's site!",
         url: window.location.href
       });
+      if (typeof gtag === 'function') {
+        gtag('event', 'share', {
+          'event_category': 'Engagement',
+          'event_label': 'native'
+        });
+      }
     } else {
       console.log("Fallback share");
       const sharingModalElement = document.getElementById('shareModal');
@@ -39,7 +45,7 @@ const handleShare= platform => {
     const pageUrl = encodeURIComponent(window.location.href);
     const pageTitle = encodeURIComponent(document.title);
   
-    switch (platform) {
+  switch (platform) {
       case 'reddit':
         shareToReddit(pageUrl, pageTitle);
         break;
@@ -57,6 +63,12 @@ const handleShare= platform => {
         break;
       default:
         console.warn('Unknown sharing platform:', platform);
+    }
+    if (typeof gtag === 'function') {
+      gtag('event', 'share', {
+        'event_category': 'Engagement',
+        'event_label': platform
+      });
     }
 }
 
