@@ -63,8 +63,8 @@ const updateNavbarOpacity = () => {
     console.log("navbarCollape.classList.contains('show')", navbarCollape.classList.contains('show'));
     console.log("navbarCollape.classList.contains('collapsing')", navbarCollape.classList.contains('collapsing'));
     console.log("navbarCollape && !(navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing'))");
-    if (navbarCollape && !(navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing')))
-        return
+    if (navbarCollape && !(navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing'))) {
+        return;
     }
 
     const scrolled = window.scrollY;
