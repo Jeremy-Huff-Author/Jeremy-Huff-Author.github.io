@@ -113,3 +113,7 @@ body.sticky-footer footer {
     margin-bottom: 0rem;
     font-size: small;
 }
+
+p>img {
+    width: 100%;
+}
