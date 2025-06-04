@@ -6,8 +6,7 @@
     width: 100%;
     z-index: 10; /* Ensure navbar is on top */
 }
-.navbar-nav,
-main {
+.navbar-nav {
     display: flex; /* Use flexbox */
     flex-grow: 0.85; /* Allow the nav-items to grow */
     justify-content: space-around; /* Distribute space evenly */
