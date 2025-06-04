@@ -42,14 +42,15 @@ const scrollToTarget = (hash) => {
 };
 
 const navbarTogler = document.querySelector('.navbar-toggler');
+let origOpacity;
 if(navbarTogler) {
     navbarTogler.addEventListener('click', () => {
         const navbar = document.querySelector('.navbar');
         if(navbar) {
-            let origOpacity = navbar.style.getPropertyValue('--bs-bg-opacity-custom');
             console.log(origOpacity);
             navbar.classList.toggle('open');
             if(navbar.classList.contains('open')) {
+                origOpacity = navbar.style.getPropertyValue('--bs-bg-opacity-custom');
                 navbar.style.setProperty('--bs-bg-opacity-custom', 1);
             } else {
                 navbar.style.setProperty('--bs-bg-opacity-custom', origOpacity);
