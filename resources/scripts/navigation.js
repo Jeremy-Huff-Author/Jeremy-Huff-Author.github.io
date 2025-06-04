@@ -47,6 +47,7 @@ if(navbarTogler) {
         const navbar = document.querySelector('.navbar');
         if(navbar) {
             let origOpacity = navbar.style.getPropertyValue('--bs-bg-opacity-custom');
+            console.log(origOpacity);
             navbar.classList.toggle('open');
             if(navbar.classList.contains('open')) {
                 navbar.style.setProperty('--bs-bg-opacity-custom', 1);
@@ -60,11 +61,7 @@ if(navbarTogler) {
 const updateNavbarOpacity = () => {
 
     const navbarCollape = document.querySelector('.navbar-collapse');
-    console.log("navbarCollape.classList.contains('collapsing')", navbarCollape.classList.contains('collapsing'));
-    console.log("navbarCollape.classList.contains('show')", navbarCollape.classList.contains('show'));
-    console.log("navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing')", navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing'));
     if (navbarCollape.classList.contains('show') || navbarCollape.classList.contains('collapsing')) {
-        console.log("skipping updateNavbarOpacity()");
         return;
     }
 
