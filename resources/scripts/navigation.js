@@ -47,7 +47,6 @@ if(navbarTogler) {
     navbarTogler.addEventListener('click', () => {
         const navbar = document.querySelector('.navbar');
         if(navbar) {
-            console.log(origOpacity);
             navbar.classList.toggle('open');
             if(navbar.classList.contains('open')) {
                 origOpacity = navbar.style.getPropertyValue('--bs-bg-opacity-custom');
