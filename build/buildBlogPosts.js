@@ -209,7 +209,7 @@ async function main() {
     console.log(`✅ Wrote ${posts.length} posts to ${manifestPath}`);
 
     // Add blog post sitemap entries
-    const blogPostUrls = posts.map(post => `https://jeremythuff.com/blog/index.html?post=${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`);
+    const blogPostUrls = posts.map(post => `https://jeremythuff.page/blog/index.html?post=${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`);
 
     for (const blogPostUrl of blogPostUrls) {
       if (!sitemap.urlset.url.some(urlEntry => urlEntry.loc === blogPostUrl)) {
