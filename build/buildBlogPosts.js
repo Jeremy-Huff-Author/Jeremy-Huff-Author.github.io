@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const xml2js = require('xml2js');
 const { Client } = require("@notionhq/client");
 const axios = require("axios");
 const sharp = require("sharp");
@@ -9,6 +10,7 @@ const { NOTION_POST_DATABASE_ID, NOTION_TOKEN } = process.env;
 const postsDir = path.join("blog", "posts");
 const manifestPath = path.join(__dirname, '..', "blog", "post-manifest.json");
 
+const sitemapPath = path.join(__dirname, '..', "sitemap.xml");
 const today = new Date().toISOString().split("T")[0];
 
 function isPastOrToday(dateStr) {
@@ -31,6 +33,35 @@ async function main() {
   if (!fs.existsSync(postsDir)) {
     fs.mkdirSync(postsDir, { recursive: true });
   }
+
+  // Read and parse existing sitemap
+  let sitemap = {};
+  let sitemapExists = fs.existsSync(sitemapPath);
+
+  if (sitemapExists) {
+    const sitemapContent = fs.readFileSync(sitemapPath, 'utf-8');
+    try {
+      sitemap = await xml2js.parseStringPromise(sitemapContent, { explicitArray: false });
+    } catch (error) {
+      console.error("Error parsing existing sitemap.xml:", error);
+      // Initialize with a basic structure if parsing fails
+      sitemap = {
+        urlset: {
+          $: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' },
+          url: []
+        }
+      };
+    }
+  } else {
+    // Initialize with a basic structure if sitemap doesn't exist
+    sitemap = {
+      urlset: {
+        $: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' },
+        url: []
+      }
+    };
+  }
+
 
   const posts = [];
 
@@ -177,6 +208,21 @@ async function main() {
     fs.writeFileSync(manifestPath, JSON.stringify(posts, null, 2));
     console.log(`✅ Wrote ${posts.length} posts to ${manifestPath}`);
 
+    // Add blog post sitemap entries
+    const blogPostUrls = posts.map(post => `https://jeremythuff.com/blog/index.html?post=${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}`);
+
+    for (const blogPostUrl of blogPostUrls) {
+      if (!sitemap.urlset.url.some(urlEntry => urlEntry.loc === blogPostUrl)) {
+        sitemap.urlset.url.push({ loc: blogPostUrl });
+      }
+    }
+
+    // Build and write updated sitemap
+    const builder = new xml2js.Builder();
+    const updatedSitemapContent = builder.buildObject(sitemap);
+
+    fs.writeFileSync(sitemapPath, updatedSitemapContent);
+    console.log(`✅ Updated sitemap.xml with blog post entries.`);
   } catch (error) {
     console.error("Error fetching blog posts from Notion:", error);
   }
