@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://jeremythuff.com/index.html</loc>
-    </url>
-    <url>
-        <loc>https://jeremythuff.com/blog/index.html</loc>
-    </url>
-    <url>
-        <loc>https://jeremythuff.com/gallery/index.html</loc>
-    </url>
+  <url>
+    <loc>https://jeremythuff.com/index.html</loc>
+  </url>
+  <url>
+    <loc>https://jeremythuff.com/blog/index.html</loc>
+  </url>
+  <url>
+    <loc>https://jeremythuff.com/gallery/index.html</loc>
+  </url>
+  <url>
+    <loc>https://jeremythuff.com/blog/index.html?post=it-comes-in-threes</loc>
+  </url>
+  <url>
+    <loc>https://jeremythuff.com/blog/index.html?post=why-i-am-writing-a-novel</loc>
+  </url>
+  <url>
+    <loc>https://jeremythuff.com/blog/index.html?post=my-first-blog-post</loc>
+  </url>
 </urlset>
