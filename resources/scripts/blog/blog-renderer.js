@@ -14,8 +14,8 @@ if(!initialPostName) {
 
 const renderPost = () => {
   const postFolderPath = `posts/${initialPostName}`;
-  const markdownFilePath = `${initialPostName}/index.md`;
-  const jsonFilePath = `${initialPostName}/index.json`;
+  const markdownFilePath = `${postFolderPath}/index.md`;
+  const jsonFilePath = `${postFolderPath}/index.json`;
 
   // Fetch the JSON metadata and markdown content concurrently
   Promise.all([
