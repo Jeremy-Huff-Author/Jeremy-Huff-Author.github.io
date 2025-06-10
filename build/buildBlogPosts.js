@@ -190,10 +190,8 @@ async function main() {
       fs.writeFileSync(path.join(postDirectory, "index.json"), JSON.stringify(postMetadata, null, 2));
 
       // Write custom-styles.css if custom styles exist
-      if (customStyles) {
-        fs.writeFileSync(path.join(postDirectory, "custom-styles.css"), customStyles);
-        console.log(`Wrote custom styles for ${title}`);
-      }
+      fs.writeFileSync(path.join(postDirectory, "custom-styles.css"), customStyles);
+      console.log(`Wrote custom styles for ${title}`);
 
       // Write index.md
       fs.writeFileSync(path.join(postDirectory, "index.md"), content);
