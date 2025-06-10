@@ -93,7 +93,7 @@ fetch('post-manifest.json')
         listItem.classList.add('active');
       }
 
-      listItem.href = `/blog/index.html?post=${post.path}`; // Use hash for navigation
+      listItem.href = `/blog/index.html?post=${post.path.split('/').pop()}`; // Use hash for navigation
       listItem.innerHTML = `<li class="list-group-item">
         <div class="ms-2 me-auto">
           <div class="fw-bold">${post.title}</div>
