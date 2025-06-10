@@ -31,7 +31,7 @@ const renderPost = () => {
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
     
     // Assume cover image is always .jpg
-    const coverJpgPath = `../../${postFolderPath}/cover.jpg`;
+    const coverJpgPath = `../../blog/${postFolderPath}/cover.jpg`;
     document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverJpgPath})`);
     
     const textOverlay = document.createElement('div');
