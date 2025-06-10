@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('../../blog/post-manifest.json')
+    fetch('blog/post-manifest.json')
         .then(response => {
             if (!response.ok) {
                 

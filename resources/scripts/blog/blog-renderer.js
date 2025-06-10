@@ -12,10 +12,10 @@ if(!initialPostName) {
   }
 }
 
-const renderPost = (postPath) => {
-  const postFolderPath = `${postPath}`;
-  const markdownFilePath = `${postFolderPath}/index.md`;
-  const jsonFilePath = `${postFolderPath}/index.json`;
+const renderPost = () => {
+  const postFolderPath = `posts/${initialPostName}`;
+  const markdownFilePath = `${initialPostName}/index.md`;
+  const jsonFilePath = `${initialPostName}/index.json`;
 
   // Fetch the JSON metadata and markdown content concurrently
   Promise.all([
@@ -56,7 +56,7 @@ const renderPost = (postPath) => {
     gtag('event', 'page_view', {
       page_path: `/blog/${initialPostName}`,
       page_title: initialPostName.replace(/-/g, ' ') // optional
- });
+    });
     
     // Fetch and apply custom styles
     const customStylesPath = `${postFolderPath}/custom-styles.css`;
@@ -130,7 +130,7 @@ fetch('post-manifest.json')
 
   // Render the initial post based on the query parameter
   if (initialPostName) {
-    renderPost(initialPostName);
+    renderPost();
   }
 });
 
