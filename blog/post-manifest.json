@@ -2,21 +2,25 @@
   {
     "title": "I Got Stuck on Chapter Two: Shoe Leather",
     "date": "2025-06-09",
-    "summary": "One reason for temporary writer’s block"
+    "summary": "One reason for temporary writer’s block",
+    "path": "blog/posts/i-got-stuck-on-chapter-two-shoe-leather"
   },
   {
     "title": "It Comes in Threes",
     "date": "2025-06-02",
-    "summary": "The concept for a trilogy."
+    "summary": "The concept for a trilogy.",
+    "path": "blog/posts/it-comes-in-threes"
   },
   {
     "title": "Why I am Writing a Novel",
     "date": "2025-05-26",
-    "summary": "It all started on a road trip…"
+    "summary": "It all started on a road trip…",
+    "path": "blog/posts/why-i-am-writing-a-novel"
   },
   {
     "title": "My First Blog Post",
     "date": "2025-05-20",
-    "summary": "A post about a thing"
+    "summary": "A post about a thing",
+    "path": "blog/posts/my-first-blog-post"
   }
 ]
