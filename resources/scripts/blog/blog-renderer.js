@@ -12,12 +12,8 @@ if(!initialPostName) {
   }
 }
 
-const convertTitleToDirName = (title) => {
-  return title.toLowerCase().replace(/\s+/g, '-');
-};
-
-const renderPost = (postName) => {
-  const postFolderPath = `posts/${postName}`;
+const renderPost = (postPath) => {
+  const postFolderPath = `${postPath}`;
   const markdownFilePath = `${postFolderPath}/index.md`;
   const jsonFilePath = `${postFolderPath}/index.json`;
 
@@ -35,7 +31,7 @@ const renderPost = (postName) => {
     heroSection.classList.add('blog-hero', 'position-relative', 'd-flex', 'align-items-end', 'text-white', 'p-5', 'mb-5');
     
     // Assume cover image is always .jpg
-    const coverJpgPath = `/blog/posts/${postName}/cover.jpg`;
+    const coverJpgPath = `/${postPath}/cover.jpg`;
     document.documentElement.style.setProperty('--blog-hero-background-image', `url(${coverJpgPath})`);
     
     const textOverlay = document.createElement('div');
@@ -60,7 +56,7 @@ const renderPost = (postName) => {
     gtag('event', 'page_view', {
       page_path: `/blog/${initialPostName}`,
       page_title: initialPostName.replace(/-/g, ' ') // optional
-    });
+ });
     
     // Fetch and apply custom styles
     const customStylesPath = `${postFolderPath}/custom-styles.css`;
@@ -93,7 +89,7 @@ fetch('post-manifest.json')
       const listItem = document.createElement('a');
       listItem.classList.add('list-group-item', 'list-group-item-action');
 
-      if(initialPostName === convertTitleToDirName(post.title)) {
+      if(initialPostName === post.path.split('/').pop()) {
         listItem.classList.add('active');
       }
 
@@ -105,7 +101,7 @@ fetch('post-manifest.json')
         </div>
       </li>`;
       postsListContainer.appendChild(listItem);
-
+      
       listItem.addEventListener('click', (event) => {
         // Prevent default navigation
         event.preventDefault();

@@ -34,24 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
-const convertTitleToDirName = (title) => {
-    return title.toLowerCase().replace(/\s+/g, '-');
-};
-
 const compileBlogPostPreview = (post) => {
     const blogPreview = `
     <div class="blog-post-preview mb-4">
-        <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${convertTitleToDirName(post.title)}">
-            <img class="blog-thumbnail" src="./blog/posts/${convertTitleToDirName(post.title)}/thumbnail.jpg" alt="${post.title}" class="rounded">
+ <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${post.path.split('/').pop()}">
+ <img class="blog-thumbnail" src="${post.path}/thumbnail.jpg" alt="${post.title}" class="rounded">
         </a>
         <div class="d-flex flex-column">
-            <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${convertTitleToDirName(post.title)}">
+ <a role="button" class="text-reset text-decoration-none" href="./blog/index.html?post=${post.path.split('/').pop()}">
                 <small>${new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</small>
                 <h4 class="mt-3">${post.title}</h4>
                 <p>"${post.summary}"</p>
             </a>
         </div>
     </div>
-    `
+ `;
     return blogPreview;
 };

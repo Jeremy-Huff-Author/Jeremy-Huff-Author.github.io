@@ -202,6 +202,7 @@ async function main() {
         title,
         date,
         summary,
+ path: `blog/posts/${slug}` // Add the relative path here
       });
     }
 
