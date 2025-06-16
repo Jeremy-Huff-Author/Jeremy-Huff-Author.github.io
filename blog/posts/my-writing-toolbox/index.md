@@ -37,7 +37,7 @@ That said, I do use AI tools in ways that support, rather than replace, my creat
 - Editing Support: Developmental editing, copy editing, proofreading, fact checking, and even sensitivity reading
 While I sometimes explore line-level editing suggestions, I never copy/paste rewritten text. All edits are manually reviewed and applied, ensuring my voice remains intact.
 
-If I could afford to hire humans for this work, I would. For now, I’m grateful for the help—even if it comes from a silicon-based assistant.
+If I could afford to hire humans for this work, I would. For now, I’m grateful for the help.
 
 ### AI Tools I Use
 
@@ -56,7 +56,7 @@ I’ve pieced together my author website using:
 - Notion (as a CMS)
 The entire setup (aside from the domain name) has cost me nothing but time. If there’s interest, I’d love to write about the technical setup and how it all fits together.
 
-That’s my current lineup. It’s a bit of a digital patchwork, but it’s working well so far.
+That’s my current lineup. It’s a lot of moving parts, but so far it’s working.
 
 Take it easy!
 
