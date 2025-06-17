@@ -10,6 +10,8 @@ I’ve been using Notion as a replacement for Scrivener, and so far, I’m happy
 - Outlining & Scene Management: Extensive use of databases for tracking scenes, drafts, and structure.
 - Knowledge Base: I track characters, locations, lore, and more.
 - Content Management System: It powers this blog and my author website.
+
+
 One limitation: Notion doesn’t aggregate page content well. To address that, I built a small desktop app that integrates with the Notion API to compile scene content into a manuscript.
 
 Considering I’m doing all of this on the free tier, Notion is really pulling its weight.
@@ -35,6 +37,8 @@ That said, I do use AI tools in ways that support, rather than replace, my creat
 - Concept Art & Visualization
 - Audio Narration Drafts
 - Editing Support: Developmental editing, copy editing, proofreading, fact checking, and even sensitivity reading
+
+
 While I sometimes explore line-level editing suggestions, I never copy/paste rewritten text. All edits are manually reviewed and applied, ensuring my voice remains intact.
 
 If I could afford to hire humans for this work, I would. For now, I’m grateful for the help.
@@ -54,6 +58,8 @@ I’ve pieced together my author website using:
 - GitHub Pages
 - Netlify
 - Notion (as a CMS)
+
+
 The entire setup (aside from the domain name) has cost me nothing but time. If there’s interest, I’d love to write about the technical setup and how it all fits together.
 
 That’s my current lineup. It’s a lot of moving parts, but so far it’s working.
