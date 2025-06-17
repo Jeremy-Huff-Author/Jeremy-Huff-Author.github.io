@@ -48,6 +48,8 @@ If I could afford to hire humans for this work, I would. For now, I’m grateful
 - ChatGPT & Gemini: Research, editing support, and concept development
 - NotebookLM: World-building bible management
 - Hume.ai & ElevenLabs: Audio narration prototypes
+
+
 I’ll go deeper into how I use each of these tools in future posts.
 
 ## Web & Author Platform
