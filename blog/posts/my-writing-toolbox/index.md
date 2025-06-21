@@ -1,4 +1,4 @@
-As I dive back into novel writing, I’ve pulled together a collection of tools to support the process—from outlining and drafting to editing and publishing. I’ll likely write dedicated posts about some of these tools in the future, but here’s a high-level overview of what I’m using right now.
+As I dive back into novel writing, I’ve pulled together a collection of tools to support the process—from outlining and drafting to editing and manuscript preparation. I’ll likely write dedicated posts about some of these tools in the future, but here’s a high-level overview of what I’m using right now.
 
 ## Writing & Organization
 
