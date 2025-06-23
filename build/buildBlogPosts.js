@@ -25,7 +25,7 @@ async function main() {
   if (!NOTION_POST_DATABASE_ID || !NOTION_TOKEN) {
     console.error("Please provide NOTION_POST_DATABASE_ID and NOTION_TOKEN environment variables.");
     process.exit(1);
-}
+  }
 
   const notion = new Client({ auth: NOTION_TOKEN });
 
@@ -200,11 +200,18 @@ async function main() {
         title,
         date,
         summary,
- path: `blog/posts/${slug}` // Add the relative path here
+        path: `blog/posts/${slug}` // Add the relative path here
       });
     }
 
-    fs.writeFileSync(manifestPath, JSON.stringify(posts, null, 2));
+    // Sort posts by date in descending order
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    fs.writeFileSync(
+      manifestPath,
+      JSON.stringify(posts, null, 2)
+    );
+
     console.log(`✅ Wrote ${posts.length} posts to ${manifestPath}`);
 
     // Add blog post sitemap entries
