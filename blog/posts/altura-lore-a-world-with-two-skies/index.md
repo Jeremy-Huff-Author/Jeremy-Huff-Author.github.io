@@ -14,7 +14,7 @@ The heavier native N₂O atmosphere sank downward, filling the lowlands, valleys
 
 This created a long-lasting atmospheric inversion, where gases separated into distinct vertical layers due to their relative molecular weights and densities:
 
-Nitrous oxide (N₂O, molecular weight ~44) is heavier than the oxygen-nitrogen mix (~29 average molecular weight).
+Nitrous oxide (N₂O, molecular weight 44) is heavier than the oxygen-nitrogen mix (29 average molecular weight).
 
 Gravity caused the denser gas to settle closer to the surface, while the lighter gas rose.
 
