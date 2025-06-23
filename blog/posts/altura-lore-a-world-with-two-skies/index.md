@@ -43,9 +43,23 @@ Ecologically, the split creates two distinct environments:
 
 Despite the passage of millennia, the bifurcated atmosphere of Altura persists not purely through climatic quiescence, but through a complex interplay of legacy systems of physical and engineered factors rooted in the planet’s failed terraforming effort:
 
+
+
 - Relative gas densities: The toxic lower atmosphere, rich in nitrous oxide (N₂O), is significantly denser than the upper nitrogen-oxygen layer, naturally maintaining stratification under gravity.
+
+
 - Extreme temperature manipulation (terraforming legacy):
+- A network of bioengineered flora and fauna, remnants of the terraforming project, continuously converts heat into light, contributing to thermal regulation.
+- The ground remains artificially cool, while the upper atmosphere retains warmth — a critical inversion that stabilizes the stratification and counteracts mixing.
+- The great towers — once colony ships — channel heat from the lower to the upper atmosphere, further reinforcing the thermal inversion that underpins the atmospheric separation.
+
+
+
+
 - Remnants of the world house:
+- The sectional divisions of the collapsed nanofiber canopy act as partial barriers, inhibiting low-level air circulation. This creates relative atmospheric stillness near the surface, even though storms still rage in the upper layers.
+
+
 This careful balancing of temperature and density prevents the natural mixing of gases, sustains the breathable upper zone, and mitigates some of the planet’s greenhouse effects. The result is a stable equilibrium where the atmosphere remains partitioned and the vertical segregation of Alturan society endures.
 
 There are many more aspects of Altura that will be explored in future posts. Such as an explanation for how the Aerlands float in the lower atmosphere, the nature of the Andraforms, or the specific events surrounding Skyfall. 
