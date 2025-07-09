@@ -6,7 +6,7 @@ I hope to do many more.
 
 Altura is a world divided. It is divided physically—the atmosphere of the planet has a stark divide between breathable oxegen above and toxic Nitros Oxide below—and it is divided socially. The impoverished masses of the planet crowd into domes at the base of ancient towers, sheltered from the suffocating air, but trapped by it at the same time. Above them, in magnificent floating cities called aerlands, the aristocrats lead very different lives—lives of luxury and freedom.
 
-The divide between the peoples of Altura is stark, and invades every aspect of life. Including the clothes which are worn by each group. At the base of the towers rough spun cot cloth and mo skin are the primary textiles used to clothe the domers. In the aerlands, the elite wear the finest fly silk clothing, an immediate distinction of class.
+The divide between the peoples of Altura is stark, and invades every aspect of life. Including the clothes which are worn by each group. At the base of the towers rough spun cot cloth and mohair are the primary textiles used to clothe the domers. In the aerlands, the elite wear the finest fly silk clothing, an immediate distinction of class.
 
 
 
