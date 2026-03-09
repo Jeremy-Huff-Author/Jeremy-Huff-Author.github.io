@@ -60,3 +60,24 @@ html, body {
     background: #6c757d;
     box-shadow: 2px 2px 6px -2px #000;
 }
+
+.carousel-caption {
+    position: absolute;
+    bottom: 1rem;
+    left: 15%;
+    right: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+    text-align: center;
+    display: block !important; 
+}
+
+.disclaimer-warning {
+    position: absolute;
+    bottom: -3px;
+    width: 100%;
+    font-size: 0.65rem;
+    color: #e1dd9c;
+    background-color: rgba(1, 1, 1, 0.35);
+}

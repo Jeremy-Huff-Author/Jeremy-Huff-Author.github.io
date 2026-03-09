@@ -24,10 +24,15 @@ fetch('/gallery/manifest.json')
       const descriptionElement = document.createElement('p');
       descriptionElement.textContent = entry.description;
 
+      const disclaimerElement = document.createElement('p');
+      disclaimerElement.classList.add('disclaimer-warning');
+      disclaimerElement.textContent = 'The art featured in this gallery is AI-generated and serves as concept work for the visual exploration of my fictional world. These images are not part of any official marketing campaign.';
+
       captionDiv.appendChild(nameElement);
       captionDiv.appendChild(descriptionElement);
-            carouselItem.appendChild(img);
-            carouselItem.appendChild(captionDiv);
-            carouselInner.appendChild(carouselItem);
-          });
+      captionDiv.appendChild(disclaimerElement);
+      carouselItem.appendChild(img);
+      carouselItem.appendChild(captionDiv);
+      carouselInner.appendChild(carouselItem);
+    });
   });

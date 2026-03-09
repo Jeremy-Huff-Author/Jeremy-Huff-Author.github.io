@@ -67,6 +67,20 @@ p, a, li {
 .latest-project-section, .recent-blog-posts-section {
     padding: 50px 0;
 }
+.latest-project-image-container {
+    position: relative;
+}
+
+.latest-project-image-container .disclaimer {
+    position: absolute;
+    bottom: -10px;
+    left: 3px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.5em;
+    color: #e1dd9c;
+}
 .latest-project-image {
     max-width: 100%;
     height: auto;
@@ -139,10 +153,11 @@ p, a, li {
     justify-self: anchor-center;
     align-self: anchor-center;
     bottom: -29px;
-    width: 50px;
+    width: 150%;
     height: 50px;
     background-image: url(../images/underline.png);
     background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .section-heading h2 {
@@ -161,6 +176,20 @@ p, a, li {
     margin-top: 0;
     margin-bottom: 0rem;
     font-size: small;
+}
+
+.disclaimer-warning {
+    margin-top: 0;
+    margin-bottom: 0rem;
+    font-size: small;
+}
+
+body.sticky-footer footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
 }
 
 .blog-more-button {
