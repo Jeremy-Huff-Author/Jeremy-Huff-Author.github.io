@@ -1,2 +1,2 @@
- A residential spur (side street or cul-de-sac) where Treaky and Sabatha live, connected to Or’wid
+In the deeper darkness between two sprawling tenements lay an alley called Botmer Spur. The buildings slouched away from their streets, leaning towards each other like slumbering dogs pressed flank to flank. No place in Levendom could afford to be unpeopled, so that even this shadowy crease was lined with small shacks, clinging like ticks on the backs of the sleeping buildings. Despite the gloom that shrouded everything in the dome, each window of that dark alley glowed with the warm lights of home—a small defiance of their dim surrounds. 
 

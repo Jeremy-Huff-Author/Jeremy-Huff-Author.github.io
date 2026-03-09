@@ -1,2 +1,2 @@
-A militarized, government-controlled district on the southern face of the tower. Reserved for the Governor’s regiment and off-limits to most domers. This is the Aerlands seat of power within the Domes.
+Named for the many tall and stately manors that extended from the southeast base of the great Tower, Manorface was an invasion of proud dignity marching out into the otherwise ramshackle and dingy structures that slouched away from it in every direction.
 

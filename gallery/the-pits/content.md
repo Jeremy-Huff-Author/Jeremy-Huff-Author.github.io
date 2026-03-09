@@ -1,2 +1,2 @@
-A massive terraced open-pit mine in the southwestern quadrant of the dome. Full of shaft mouths, carts, and steaming ore lifts
+The Pits were a singular gaping maw in the south of Levendom. About four hundred meters across, it consisted of concentric rings of descending terraces cut progressively deeper and deeper into rock. Each terrace was riddled with the black entrances to shafts cut into the vertical faces, giving the impression of an inverted hive pressing into the heart of Altura. Around the rim—an area referred to as 
 

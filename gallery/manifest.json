@@ -1,18 +1,23 @@
 [
   {
+    "path": "gallery/botmer-spur",
+    "title": "Botmer Spur",
+    "description": "In the deeper darkness between two sprawling tenements lay an alley called Botmer Spur. The buildings slouched away from their streets, leaning towards each other like slumbering dogs pressed flank to flank. No place in Levendom could afford to be unpeopled, so that even this shadowy crease was lined with small shacks, clinging like ticks on the backs of the sleeping buildings. Despite the gloom that shrouded everything in the dome, each window of that dark alley glowed with the warm lights of home—a small defiance of their dim surrounds. \n\n"
+  },
+  {
     "path": "gallery/levenaer",
     "title": "Levenaer",
-    "description": "The skies of Altura are filled with the great floating aerlands. These marvels of humanities will to survive are grown from a native microorganism known as coral. They float on a cloud sea, each one anchored to one of the many great towers that pierce through the golden mists.\n\n"
+    "description": "Levenaer floated, held to the great tower by a chain of unimaginable size.\n\nAll along the tops of its walls were towers, walks, cranes, and scaffolded aerdocks. Tied to the docks on chains of their own were great aerships, like sleeping beasts, hovering around the floating city.\n\nAnd still they climbed, until he could see down into Levenaer, and see the descending terraces and the many small buildings and parks and fountains and tiny lights burning in a city so unlike the one they had just left behind.\n\n"
   },
   {
     "path": "gallery/levendom",
     "title": "Levendom",
-    "description": "Levendom is one of the many domed cities crouching at the base of the Altura’s great and ancient towers.\n\n"
+    "description": "The great opaque surface of the dome arched up and away from the wall in front of Lewin. Up and up, walls turned to ceiling and curving ever upward, until at their highest they formed a collar around a huge tower that thrust from the center of the city and out through the top of the massive dome. Where dome met tower, a sliver of the sky could be seen, still dark with night.\n\n"
   },
   {
     "path": "gallery/manorface",
     "title": "Manorface",
-    "description": "A militarized, government-controlled district on the southern face of the tower. Reserved for the Governor’s regiment and off-limits to most domers. This is the Aerlands seat of power within the Domes.\n\n"
+    "description": "Named for the many tall and stately manors that extended from the southeast base of the great Tower, Manorface was an invasion of proud dignity marching out into the otherwise ramshackle and dingy structures that slouched away from it in every direction.\n\n"
   },
   {
     "path": "gallery/noonstreet-market",
@@ -22,26 +27,26 @@
   {
     "path": "gallery/orwid-way",
     "title": "Or’wid Way",
-    "description": "A main ore-hauling road from The Pits to the tower’s southern cargo yards\n\n"
+    "description": "All along Or’Wid the refineries woke, their great engines creaking like old men rising from their beds. Their furnaces fired and chimneys beginning their daily exhale of billowing vapor. He watched as the ragged domers emerged from their tenements and joined a growing throng of hangdog shufflers, all heading to one miserable purpose or another.\n\nOverhead metal squealed and chains chattered as the crane arms were extended out over the streets in preparation for the loading and unloading of the Magnium ore.\n\n"
   },
   {
     "path": "gallery/the-pits",
     "title": "The Pits",
-    "description": "A massive terraced open-pit mine in the southwestern quadrant of the dome. Full of shaft mouths, carts, and steaming ore lifts\n\n"
+    "description": "The Pits were a singular gaping maw in the south of Levendom. About four hundred meters across, it consisted of concentric rings of descending terraces cut progressively deeper and deeper into rock. Each terrace was riddled with the black entrances to shafts cut into the vertical faces, giving the impression of an inverted hive pressing into the heart of Altura. Around the rim—an area referred to as \n\n"
   },
   {
     "path": "gallery/the-tower",
     "title": "The Tower",
-    "description": "An ancient, seamless vertical structure (former colony ship) at the center of Levendom. It pierces the dome and extends far above. Used for freight, lifts, and symbolic separation between classes\n\n"
+    "description": "Despite the urgency in the Doctor’s step and Treaky’s own macabre excitement at being called on to investigate a murder, he found himself taken in once again by the structure. The clean height seemed to defy the dim and hazy confines as it rose up and through the Sliver. Forgetting himself, Treaky stopped to crane his neck in a vain attempt to take in the Tower in its entirety.\n\nThe looming structure grew before them as they came closer and closer, and Treaky’s familiar sense of fascination with the smooth white-walled giant began to shift to nervous apprehension. Current, the ancient magic that built this tower, was the same power that had brought the skies down. Did he really want to get closer to something that was built from that power?\n\n"
   },
   {
     "path": "gallery/the-twix",
     "title": "The Twix",
-    "description": "A gang-dominated, narrow, winding warren of alleys northwest and west of the tower. Ill-lit and full of coded lanterns marking brothels, bathhouses, and gang territories\n\n"
+    "description": "Even midday in Levendom was as dusk, but it was always night in the Twix.\n\nThe warren of tight streets and tall looming buildings conspired to keep even the meager lights of the dome from penetrating down to the rough cobbles. Pools of tinted lights made beacons in the dimness, their colored shades each a code for those who knew their meaning. Sally pointed these out as they wound their way deeper into the darkness: Green, a breath den; Blue, a tap house. The sick yellow was for gambling, and the occasional tallow candles marked the home of an alley witch, who might read your fortune or curse your neighbor, either, for a bit or two.\n\n"
   },
   {
     "path": "gallery/threeside-vapor-gate",
     "title": "Threeside Vapor Gate",
-    "description": ""
+    "description": "The four men stepped up to the vapor gate. \n\nThe large orifice was set into the side of the great dome’s wall, its bulky metal construction appearing crude and angular next to the smooth sweep of the dome’s mysterious surface. Up and down the sides of the vapor gate were the pipes and tubing that allowed for the distribution of the pressurized air that, once activated and opened, would hold at bay the noxious gases of the planet’s surface.\n\nThe small party stepped into the haze of vapor that swirled within the confines of the opening.\n\n"
   }
 ]
