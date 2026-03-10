@@ -5,6 +5,30 @@ const postsFilterInput = document.getElementById('posts-filter');
 const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
 let filterDebounceId = null;
+const TAG_COLOR_COUNT = 6;
+
+const escapeHtml = (value) => String(value)
+  .replaceAll('&', '&amp;')
+  .replaceAll('<', '&lt;')
+  .replaceAll('>', '&gt;')
+  .replaceAll('"', '&quot;')
+  .replaceAll("'", '&#39;');
+
+const getTagColorIndex = (tag) => {
+  let hash = 0;
+  for (let i = 0; i < tag.length; i += 1) {
+    hash = (hash * 31 + tag.charCodeAt(i)) % TAG_COLOR_COUNT;
+  }
+  return hash;
+};
+
+const renderTags = (tags) => {
+  if (!Array.isArray(tags) || tags.length === 0) return '';
+  return `<div class="post-tags">${tags.map(tag => {
+    const colorIndex = getTagColorIndex(tag);
+    return `<span class="post-tag tag-badge-${colorIndex}">${escapeHtml(tag)}</span>`;
+  }).join('')}</div>`;
+};
 
 const applyPostFilter = () => {
   if (!postsListContainer || !postsFilterInput) return;
@@ -121,11 +145,15 @@ fetch('post-manifest.json')
         listItem.classList.add('active');
       }
 
+      const tagsMarkup = renderTags(post.tags);
       listItem.href = `/blog/index.html?post=${post.path.split('/').pop()}`; // Use hash for navigation
       listItem.innerHTML = `<li class="list-group-item">
         <div class="ms-2 me-auto">
           <div class="fw-bold">${post.title}</div>
-          ${post.date}
+          <div class="post-meta">
+            <span class="post-date">${post.date}</span>
+            ${tagsMarkup}
+          </div>
         </div>
       </li>`;
       postsListContainer.appendChild(listItem);
@@ -163,4 +191,3 @@ fetch('post-manifest.json')
     renderPost();
   }
 });
-

@@ -95,6 +95,40 @@ main {
     border: none;
 }
 
+.post-meta {
+    margin-top: 0.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.post-tag {
+    font-size: 0.7rem;
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #fff;
+}
+
+.tag-badge-0 { background-color: #0d6efd; }
+.tag-badge-1 { background-color: #198754; }
+.tag-badge-2 { background-color: #fd7e14; }
+.tag-badge-3 { background-color: #20c997; }
+.tag-badge-4 { background-color: #dc3545; }
+.tag-badge-5 { background-color: #ffc107; color: #212529; }
+
 #posts-list {
     transition: filter 150ms ease, opacity 150ms ease;
 }

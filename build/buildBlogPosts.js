@@ -85,6 +85,7 @@ async function main() {
       const coverImageUrl = page.cover?.file?.url || page.cover?.external?.url || ''; // Access cover image URL correctly
       const customStyles = properties["Custom Styles"]?.rich_text?.[0]?.plain_text || "";
       const status = properties.Status?.status?.name || properties.Status?.select?.name || "";
+      const tags = properties.Tags?.multi_select?.map(tag => tag.name) || (properties.Tags?.select?.name ? [properties.Tags.select.name] : []);
 
       if (!title || !date || !isPastOrToday(date)) {
         console.log(`Skipping post with missing title, date, or future date: ${title || pageId}`);
@@ -189,7 +190,8 @@ async function main() {
         id: pageId,
         title,
         date,
-        summary
+        summary,
+        tags
       };
 
       fs.writeFileSync(path.join(postDirectory, "index.json"), JSON.stringify(postMetadata, null, 2));
@@ -205,6 +207,7 @@ async function main() {
         title,
         date,
         summary,
+        tags,
         path: `blog/posts/${slug}` // Add the relative path here
       });
     }
