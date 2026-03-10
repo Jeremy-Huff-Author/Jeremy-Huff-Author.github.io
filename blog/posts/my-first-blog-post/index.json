@@ -2,5 +2,8 @@
   "id": "202d719a-3dbb-80eb-9359-e53568a43dd4",
   "title": "My First Blog Post",
   "date": "2025-05-20",
-  "summary": "A post about a thing"
+  "summary": "A post about a thing",
+  "tags": [
+    "UPDATES"
+  ]
 }

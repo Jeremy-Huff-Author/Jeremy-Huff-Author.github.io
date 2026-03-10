@@ -3,54 +3,81 @@
     "title": "AI for Writers",
     "date": "2026-03-10",
     "summary": "An overview of how I do/do not use AI in my writing process",
+    "tags": [
+      "THE WRITING PROCESS"
+    ],
     "path": "blog/posts/ai-for-writers"
   },
   {
     "title": "LORE: Fly Silk Production",
     "date": "2025-07-07",
     "summary": "The Clothing of the Aerlands",
+    "tags": [
+      "LORE"
+    ],
     "path": "blog/posts/lore-fly-silk-production"
   },
   {
     "title": "Notion for Authors",
     "date": "2025-06-30",
     "summary": "How I'm using Notion's free tier to write this book",
+    "tags": [
+      "THE WRITING PROCESS"
+    ],
     "path": "blog/posts/notion-for-authors"
   },
   {
     "title": "Altura Lore: A World with Two Skies",
     "date": "2025-06-23",
     "summary": "The Skies of Altura",
+    "tags": [
+      "LORE"
+    ],
     "path": "blog/posts/altura-lore-a-world-with-two-skies"
   },
   {
     "title": "My Writing Toolbox",
     "date": "2025-06-16",
     "summary": "An overview of the tools I am using as an author",
+    "tags": [
+      "THE WRITING PROCESS"
+    ],
     "path": "blog/posts/my-writing-toolbox"
   },
   {
     "title": "I Got Stuck on Chapter Two: Shoe Leather",
     "date": "2025-06-09",
     "summary": "One reason for temporary writer’s block",
+    "tags": [
+      "THE WRITING PROCESS"
+    ],
     "path": "blog/posts/i-got-stuck-on-chapter-two-shoe-leather"
   },
   {
     "title": "It Comes in Threes",
     "date": "2025-06-02",
     "summary": "The concept for a trilogy.",
+    "tags": [
+      "UPDATES"
+    ],
     "path": "blog/posts/it-comes-in-threes"
   },
   {
     "title": "Why I am Writing a Novel",
     "date": "2025-05-26",
     "summary": "It all started on a road trip…",
+    "tags": [
+      "PERSONAL"
+    ],
     "path": "blog/posts/why-i-am-writing-a-novel"
   },
   {
     "title": "My First Blog Post",
     "date": "2025-05-20",
     "summary": "A post about a thing",
+    "tags": [
+      "UPDATES"
+    ],
     "path": "blog/posts/my-first-blog-post"
   }
 ]
