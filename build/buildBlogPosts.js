@@ -84,9 +84,14 @@ async function main() {
       const summary = properties.Summary?.rich_text?.[0]?.plain_text || "";
       const coverImageUrl = page.cover?.file?.url || page.cover?.external?.url || ''; // Access cover image URL correctly
       const customStyles = properties["Custom Styles"]?.rich_text?.[0]?.plain_text || "";
+      const status = properties.Status?.status?.name || properties.Status?.select?.name || "";
 
       if (!title || !date || !isPastOrToday(date)) {
         console.log(`Skipping post with missing title, date, or future date: ${title || pageId}`);
+        continue;
+      }
+      if (status.trim().toLowerCase() !== "ready") {
+        console.log(`Skipping post without Ready status: ${title || pageId} (Status: ${status || "Missing"})`);
         continue;
       }
 

@@ -1,8 +1,35 @@
 // Get the value of the 'post' query string parameter
 const postsListContainer = document.getElementById('posts-list');
 const postContentContainer = document.getElementById('post-content');
+const postsFilterInput = document.getElementById('posts-filter');
 const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
+let filterDebounceId = null;
+
+const applyPostFilter = () => {
+  if (!postsListContainer || !postsFilterInput) return;
+  const query = postsFilterInput.value.trim().toLowerCase();
+  postsListContainer.querySelectorAll('[data-title]').forEach(item => {
+    const title = (item.dataset.title || '').toLowerCase();
+    item.style.display = title.includes(query) ? '' : 'none';
+  });
+};
+
+const handleFilterInput = () => {
+  if (!postsListContainer || !postsFilterInput) return;
+  postsListContainer.classList.add('is-typing');
+  if (filterDebounceId) {
+    clearTimeout(filterDebounceId);
+  }
+  filterDebounceId = setTimeout(() => {
+    postsListContainer.classList.remove('is-typing');
+    applyPostFilter();
+  }, 250);
+};
+
+if (postsFilterInput) {
+  postsFilterInput.addEventListener('input', handleFilterInput);
+}
 
 if(!initialPostName) {
   const offcanvasElement = document.getElementById('offcanvas');
@@ -88,6 +115,7 @@ fetch('post-manifest.json')
     postManifest.forEach(post => {
       const listItem = document.createElement('a');
       listItem.classList.add('list-group-item', 'list-group-item-action');
+      listItem.dataset.title = post.title || '';
 
       if(initialPostName === post.path.split('/').pop()) {
         listItem.classList.add('active');
@@ -128,10 +156,11 @@ fetch('post-manifest.json')
     console.error(postManifest)
   }
 
+  applyPostFilter();
+
   // Render the initial post based on the query parameter
   if (initialPostName) {
     renderPost();
   }
 });
-
 
