@@ -1,6 +1,6 @@
-I’d like to say a word about, since everyone else seems to be.
+I’d like to say a word about AI, since everyone else seems to be.
 
-I would like to focus on my own usage of AI, and try to avoid, if I can, characterizing or prescribing other people’s usage. 
+I would like to focus on my own usage of AI in writing, and try to avoid, if I can, characterizing or proscribe other people’s usage. 
 
 As a software developer, I have a lot of experience with AI, both as a tool for personal productivity, and as a component in application design. There is a lot of hype around it, and in areas it meets and exceeds the hype. In far more areas it fails to deliver on our hopes for it, or the promises of the companies selling it to us.
 
@@ -14,13 +14,17 @@ AI Generated: A work is AI Generated when any part of the prose that appears on 
 
 That is usually as far as the definition goes, but for me I would go a little farther, and say that I would also consider a story, in which the plot outline was created by an LLM, to be AI Generated.
 
-AI Assisted: It is tempting to define this relative and opposite AI Generated, and just say that all other uses of AI in writing are considered AI Assisted. And that might work, but in an attempt to be a little more useful, I will outline some of those potential uses.
+AI Assisted: It is tempting to define this relative and opposite AI Generated, and just say that all other uses of AI in writing are considered AI Assisted. And that might work, but in an attempt to be a little more useful, I will outline some of those potential uses:
+
+
 
 - Research 
 - Concept Art Creation
 - Idea Generation
 - Editorial Feedback: Developmental, Line, Copy, or Proof. I designate this as “feedback” only, because I would consider any prose that was rewritten by an LLM to be AI Generated, and not AI Assisted.
 - Alpha/Beta Reader Style Feedback
+
+
 There are many more things, I am sure, but I just wanted to name a few for the purposes of illustration.
 
 ## So How do I Use AI?
