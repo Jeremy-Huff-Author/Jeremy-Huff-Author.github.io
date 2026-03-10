@@ -6,6 +6,12 @@ const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
 let filterDebounceId = null;
 const TAG_COLOR_COUNT = 6;
+const TAG_COLOR_MAP = {
+  updates: 'tag-badge-updates',
+  'the writing process': 'tag-badge-writing',
+  lore: 'tag-badge-lore',
+  personal: 'tag-badge-personal'
+};
 
 const escapeHtml = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -22,11 +28,19 @@ const getTagColorIndex = (tag) => {
   return hash;
 };
 
+const resolveTagClass = (tag) => {
+  const normalized = tag.trim().toLowerCase();
+  if (TAG_COLOR_MAP[normalized]) {
+    return TAG_COLOR_MAP[normalized];
+  }
+  return `tag-badge-${getTagColorIndex(normalized)}`;
+};
+
 const renderTags = (tags) => {
   if (!Array.isArray(tags) || tags.length === 0) return '';
   return `<div class="post-tags">${tags.map(tag => {
-    const colorIndex = getTagColorIndex(tag);
-    return `<span class="post-tag tag-badge-${colorIndex}">${escapeHtml(tag)}</span>`;
+    const tagClass = resolveTagClass(tag);
+    return `<span class="post-tag ${tagClass}">${escapeHtml(tag)}</span>`;
   }).join('')}</div>`;
 };
 
