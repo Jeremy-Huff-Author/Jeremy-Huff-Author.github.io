@@ -9,13 +9,22 @@
     "path": "blog/posts/ai-for-writers"
   },
   {
-    "title": "Progress Update: First Draft Done!",
-    "date": "2026-01-23",
-    "summary": "",
+    "title": "Project Update",
+    "date": "2026-02-23",
+    "summary": "Editing Done!",
     "tags": [
       "UPDATES"
     ],
-    "path": "blog/posts/progress-update-first-draft-done"
+    "path": "blog/posts/project-update"
+  },
+  {
+    "title": "First Draft Done!",
+    "date": "2026-01-23",
+    "summary": "Progress Update",
+    "tags": [
+      "UPDATES"
+    ],
+    "path": "blog/posts/first-draft-done"
   },
   {
     "title": "LORE: Fly Silk Production",
