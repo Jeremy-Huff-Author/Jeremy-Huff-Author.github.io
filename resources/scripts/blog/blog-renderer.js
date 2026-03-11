@@ -2,9 +2,12 @@
 const postsListContainer = document.getElementById('posts-list');
 const postContentContainer = document.getElementById('post-content');
 const postsFilterInput = document.getElementById('posts-filter');
+const postsTagsToggle = document.getElementById('posts-tags-toggle');
+const postsTagsMenu = document.getElementById('posts-tags-menu');
 const urlParams = new URLSearchParams(window.location.search);
 const initialPostName = urlParams.get('post');
 let filterDebounceId = null;
+let activeTag = null;
 const TAG_COLOR_COUNT = 6;
 const TAG_COLOR_MAP = {
   updates: 'tag-badge-updates',
@@ -21,6 +24,8 @@ const escapeHtml = (value) => String(value)
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
 
+const normalizeTag = (tag) => String(tag || '').trim().toLowerCase();
+
 const getTagColorIndex = (tag) => {
   let hash = 0;
   for (let i = 0; i < tag.length; i += 1) {
@@ -30,7 +35,7 @@ const getTagColorIndex = (tag) => {
 };
 
 const resolveTagClass = (tag) => {
-  const normalized = tag.trim().toLowerCase();
+  const normalized = normalizeTag(tag);
   if (TAG_COLOR_MAP[normalized]) {
     return TAG_COLOR_MAP[normalized];
   }
@@ -46,11 +51,15 @@ const renderTags = (tags) => {
 };
 
 const applyPostFilter = () => {
-  if (!postsListContainer || !postsFilterInput) return;
-  const query = postsFilterInput.value.trim().toLowerCase();
+  if (!postsListContainer) return;
+  const query = postsFilterInput ? postsFilterInput.value.trim().toLowerCase() : '';
+  const activeTagQuery = activeTag;
   postsListContainer.querySelectorAll('[data-title]').forEach(item => {
     const title = (item.dataset.title || '').toLowerCase();
-    item.style.display = title.includes(query) ? '' : 'none';
+    const tags = (item.dataset.tags || '').split('|').filter(Boolean);
+    const matchesTitle = title.includes(query);
+    const matchesTag = !activeTagQuery || tags.includes(activeTagQuery);
+    item.style.display = matchesTitle && matchesTag ? '' : 'none';
   });
 };
 
@@ -68,6 +77,45 @@ const handleFilterInput = () => {
 
 if (postsFilterInput) {
   postsFilterInput.addEventListener('input', handleFilterInput);
+}
+
+const setTagsMenuOpen = (isOpen) => {
+  if (!postsTagsMenu || !postsTagsToggle) return;
+  postsTagsMenu.classList.toggle('is-open', isOpen);
+  postsTagsToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+};
+
+const updateTagButtons = () => {
+  if (!postsTagsMenu) return;
+  postsTagsMenu.querySelectorAll('[data-tag]').forEach(button => {
+    const isActive = activeTag === button.dataset.tag;
+    button.classList.toggle('is-active', isActive);
+    button.classList.toggle('is-inactive', !!activeTag && !isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+};
+
+const setActiveTag = (tag) => {
+  activeTag = tag;
+  updateTagButtons();
+  applyPostFilter();
+};
+
+const toggleTagFilter = (tag) => {
+  const normalized = normalizeTag(tag);
+  if (!normalized) return;
+  if (activeTag === normalized) {
+    setActiveTag(null);
+    return;
+  }
+  setActiveTag(normalized);
+};
+
+if (postsTagsToggle && postsTagsMenu) {
+  postsTagsToggle.addEventListener('click', () => {
+    const isOpen = postsTagsMenu.classList.contains('is-open');
+    setTagsMenuOpen(!isOpen);
+  });
 }
 
 if(!initialPostName) {
@@ -151,10 +199,24 @@ fetch('post-manifest.json')
 .then(postManifest => {
   // Populate the posts list
   if (postManifest) {
+    const tagDisplayMap = new Map();
     postManifest.forEach(post => {
       const listItem = document.createElement('a');
       listItem.classList.add('list-group-item', 'list-group-item-action');
       listItem.dataset.title = post.title || '';
+      const normalizedTags = Array.isArray(post.tags)
+        ? post.tags.map(normalizeTag).filter(Boolean)
+        : [];
+      listItem.dataset.tags = normalizedTags.join('|');
+
+      if (Array.isArray(post.tags)) {
+        post.tags.forEach(tag => {
+          const normalized = normalizeTag(tag);
+          if (normalized && !tagDisplayMap.has(normalized)) {
+            tagDisplayMap.set(normalized, String(tag).trim());
+          }
+        });
+      }
 
       if(initialPostName === post.path.split('/').pop()) {
         listItem.classList.add('active');
@@ -195,6 +257,23 @@ fetch('post-manifest.json')
         }
       });
     });
+
+    if (postsTagsMenu && tagDisplayMap.size > 0) {
+      const tagsToRender = Array.from(tagDisplayMap.entries())
+        .sort((a, b) => a[1].localeCompare(b[1], undefined, { sensitivity: 'base' }));
+      postsTagsMenu.innerHTML = '';
+      tagsToRender.forEach(([normalized, label]) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `post-tag tag-filter-pill ${resolveTagClass(label)}`;
+        button.textContent = label;
+        button.dataset.tag = normalized;
+        button.setAttribute('aria-pressed', 'false');
+        button.addEventListener('click', () => toggleTagFilter(normalized));
+        postsTagsMenu.appendChild(button);
+      });
+      updateTagButtons();
+    }
   } else {
     console.error(postManifest)
   }

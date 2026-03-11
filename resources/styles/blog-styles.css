@@ -151,6 +151,57 @@ main {
     font-size: 0.95rem;
 }
 
+.posts-tags-toggle {
+    padding: 0;
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.posts-tags-toggle:hover,
+.posts-tags-toggle:focus {
+    color: #212529;
+    text-decoration: none;
+}
+
+.posts-tags-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.posts-tags-menu.is-open {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.tag-filter-pill {
+    border: none;
+    cursor: pointer;
+}
+
+.tag-filter-pill.is-active {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.tag-filter-pill.is-inactive {
+    opacity: 0.45;
+}
+
+.tag-filter-pill:focus-visible {
+    outline: 2px solid rgba(13, 110, 253, 0.6);
+    outline-offset: 2px;
+}
+
 body.sticky-footer footer {
     position: fixed;
     bottom: 0;

@@ -71,6 +71,11 @@
                         <div class="offcanvas-body">
                             <div class="mb-3">
                                 <input id="posts-filter" type="text" class="form-control posts-filter-input" placeholder="Filter posts by title..." autocomplete="off" aria-label="Filter posts by title">
+                                <button id="posts-tags-toggle" class="btn btn-link posts-tags-toggle" type="button" aria-expanded="false" aria-controls="posts-tags-menu">
+                                    Tags
+                                    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                                </button>
+                                <div id="posts-tags-menu" class="posts-tags-menu" aria-label="Filter posts by tag"></div>
                             </div>
                             <ul id="posts-list" class="list-group list-group-flush">
                                 <!-- Blog post list will be loaded here -->
