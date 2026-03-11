@@ -22,9 +22,5 @@ I rise, bruised, and look to the circle of candles, now an inferno of blackness 
 
 I scream, "Who killed Ellen?"
 
-"
-
-SHE
-
-DID IT," says the Devil, "HERSELF."
+"SHE DID IT," says the Devil, "HERSELF."
 
