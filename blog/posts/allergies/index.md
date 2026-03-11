@@ -1,3 +1,7 @@
+“A grain of Scott” (100 wds or fewer)
+
+
+
 "Well, that didn't go to plan," Susan said, trying to hold back the disgust as she peered into the contraption.
 
 She had never liked Scott, but that was no way to go.
