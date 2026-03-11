@@ -10,7 +10,8 @@ const TAG_COLOR_MAP = {
   updates: 'tag-badge-updates',
   'the writing process': 'tag-badge-writing',
   lore: 'tag-badge-lore',
-  personal: 'tag-badge-personal'
+  personal: 'tag-badge-personal',
+  microfiction: 'tag-badge-microfiction'
 };
 
 const escapeHtml = (value) => String(value)
