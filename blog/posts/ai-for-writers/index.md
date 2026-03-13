@@ -71,7 +71,7 @@ In the meantime, AI can assist in editing, with some important caveats.
 
 The first being, it is not great at it. It is better at proofing and copy editing than it is at line or developmental edits.
 
-In the case of line edits, it can be especially difficult to get AI to not attempt to destroy your authorial voice. If you take every suggestion that AI gives you, your writing would be come bland and lifeless.
+In the case of line edits, it can be especially difficult to get AI to not attempt to destroy your authorial voice. If you take every suggestion that AI gives you, your writing would become bland and lifeless.
 
 But, with the proper guidance, and the discipline to put your creative vision first, it is possible for AI to draw your attention to problem areas in your writing. For me this has helped tremendously with speeding up the editorial processes.
 
