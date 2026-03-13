@@ -89,6 +89,10 @@ main {
     border: none;
 }
 
+#posts-list .list-group-item {
+    --bs-list-group-item-padding-x: 0.5rem;
+}
+
 .list-group-item.active {
     color: #e9ecee;
     text-decoration: none;
